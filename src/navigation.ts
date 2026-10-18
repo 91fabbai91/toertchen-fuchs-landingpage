@@ -7,6 +7,32 @@ export function initNavigation(): void {
   setupLegalModals();
   setupEmailObfuscation();
   setupEasterEggUnlock();
+  setupHashScrollHandler();
+}
+
+export function setupHashScrollHandler(): void {
+  if (typeof window === 'undefined' || !window.location.hash) return;
+
+  // Prevent browser history restoration from jumping to stale scroll positions
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  const scrollToHashTarget = () => {
+    const hash = window.location.hash;
+    if (!hash) return;
+    const target = document.querySelector<HTMLElement>(hash);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  // Execute after layout settles (DOM, fonts, images)
+  if (document.readyState === 'complete') {
+    setTimeout(scrollToHashTarget, 60);
+  } else {
+    window.addEventListener('load', () => setTimeout(scrollToHashTarget, 60));
+  }
 }
 
 export function setupEasterEggUnlock(): void {
