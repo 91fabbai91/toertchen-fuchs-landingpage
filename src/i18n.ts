@@ -12,7 +12,7 @@ export const translations = {
     hero_badge: 'Schlaue Pfade & Süße Momente',
     hero_title: 'TörtchenFuchs',
     hero_subtitle:
-      'Wo Neugierde auf Handwerkskunst trifft. Folge den Spuren durch die Natur und entdecke handgemachte Köstlichkeiten, die den Tag verzaubern.',
+      'Schön, dass Du uns gefunden hast!\nErfahre hier mehr über unsere Mission, entdecke unsere Pfade.',
     hero_cta_primary: 'Pfade & Momente entdecken',
     hero_cta_contact: 'Schreib uns!',
 
@@ -20,22 +20,14 @@ export const translations = {
     section1_title: 'Wer sind wir?',
     section1_lead: 'Handwerkskunst, Neugier und die Liebe zum süßen Detail.',
     section1_p1:
-      'Hinter dem TörtchenFuchs steckt die Leidenschaft für echte Handwerkskunst, verborgene Wege und die kleinen Freuden des Lebens. Wie ein aufmerksamer Fuchs streifen wir durch die Region – immer auf der Suche nach den besten Zutaten, den schönsten Aussichten und Rezepten, die ein Lächeln ins Gesicht zaubern.',
-    section1_p2:
-      'Unsere Kreationen verbinden traditionelle Backkunst mit modernen Aromen und einer Prise Abenteuerlust. Ob feine Törtchen, saftige Zimtschnecken oder liebevoll gestaltete Überraschungen für besondere Momente: Bei uns wird jedes Stück mit Hingabe von Hand gefertigt.',
-    feature1_title: '100% Handgemacht',
-    feature1_desc: 'Mit besten Zutaten und echter Liebe zum Detail gebacken.',
-    feature2_title: 'Schlaue Pfade',
-    feature2_desc: 'Kreative Entdecker-Spuren und Genuss-Orte in der Natur.',
+      'Zwei Köpfe, unzählige Ideen: Zwischen Code und Pinselstrich, Berggipfeln und Backofen schlägt unser Herz fürs Kreative und das Entdecken der Welt. Unsere ganz eigene Version von Geocaching: Wir reisen nicht nur durch Orte – wir hinterlassen ihnen etwas Schönes zurück.',
 
     section2_tag: 'Unsere Philosophie',
     section2_title: 'Warum tun wir das?',
     section2_lead:
       'Weil das Leben draußen schöner ist – und mit einer süßen Belohnung noch viel besser.',
     section2_p1:
-      'Wir glauben daran, dass die besten Erlebnisse entstehen, wenn Bewegung, Entdeckerfreude und Genuss zusammenkommen. Unsere QR-Pfade laden dazu ein, die Augen offen zu halten, neue Lieblingsorte zu entdecken und den Moment mit allen Sinnen zu genießen.',
-    section2_p2:
-      'Jeder Fund an unseren Stationen ist eine kleine Einladung zum Innehalten, Durchatmen und Genießen. Wir möchten Menschen zusammenbringen – durch die Freude am Draußensein und die Begeisterung für ehrliche, handgemachte Köstlichkeiten.',
+      'Wir hinterlassen an besonderen Orten kleine kreative Grüße, um der Welt etwas Schönes zurückzugeben. Doch die Reise endet für uns nicht beim Verstecken: Wir wollen wissen, wer diesen Moment mit uns teilt! Es ist jedes Mal ein Highlight, von euch zu lesen – schreibt uns kurz, schickt ein Foto oder hinterlasst einen Gedanken.',
 
     section3_tag: 'Austausch & Kontakt',
     section3_title: 'Schreib uns!',
@@ -82,7 +74,7 @@ export const translations = {
     hero_badge: 'Clever Paths & Sweet Moments',
     hero_title: 'TörtchenFuchs',
     hero_subtitle:
-      'Where curiosity meets craft. Follow the trails through nature and discover handcrafted delicacies that sweeten your day.',
+      'We are glad you found us!\nLearn more about our mission here, and explore our trails.',
     hero_cta_primary: 'Discover Trails & Moments',
     hero_cta_contact: 'Get in touch with us',
 
@@ -91,22 +83,13 @@ export const translations = {
     section1_lead: 'Craftsmanship, curiosity, and a love for sweet details.',
     section1_p1:
       'Behind TörtchenFuchs lies a passion for true craftsmanship, hidden pathways, and life’s simple joys. Like a watchful fox, we wander the region in search of the finest ingredients, the most scenic viewpoints, and recipes that bring a smile to your face.',
-    section1_p2:
-      'Our creations blend time-honored baking traditions with modern flavors and a spirit of adventure. Whether delicate tartlets, juicy cinnamon buns, or lovingly crafted treats for special moments: every creation is made by hand with heart and care.',
-    feature1_title: '100% Handcrafted',
-    feature1_desc: 'Freshly baked daily with the finest ingredients.',
-    feature2_title: 'Clever Trails',
-    feature2_desc: 'Creative exploration trails and scenic moments in nature.',
 
     section2_tag: 'Our Philosophy',
     section2_title: 'Why do we do that?',
     section2_lead:
       'Because life is richer outdoors — and even sweeter with a delicious treat.',
     section2_p1:
-      'We believe the best memories are made when exploration, fresh air, and artisanal indulgence meet. Our QR trails invite you to keep your eyes open, discover new favorite spots, and savor the moment with all your senses.',
-    section2_p2:
-      'Every discovery along our stations is an invitation to pause, take a deep breath, and enjoy. We aim to connect people — through the joy of being outside and the delight in honest, handcrafted treats.',
-
+      'We leave little creative messages in special places to give something beautiful back to the world. But for us, the journey doesn’t end with hiding them: We want to know who’s sharing this moment with us! It’s always a highlight to hear from you—send us a quick note, share a photo, or leave a thought.',
     section3_tag: 'Connection & Contact',
     section3_title: 'Get in touch with us',
     section3_subtitle:
