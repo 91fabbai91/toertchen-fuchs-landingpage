@@ -1,9 +1,15 @@
+import folding1De from './assets/folding_1.jpeg';
+import folding2De from './assets/folding_2.jpeg';
+import folding1En from './assets/folding_1_en.jpeg';
+import folding2En from './assets/folding_2_en.jpeg';
+
 export type Language = 'de' | 'en';
 
 export const translations = {
   de: {
     nav_who: 'Wer sind wir?',
     nav_why: 'Warum tun wir das?',
+    nav_recipe: 'Das Rezept',
     nav_contact: 'Schreib uns!',
 
     brand_title: 'TörtchenFuchs',
@@ -28,6 +34,53 @@ export const translations = {
       'Weil das Leben draußen schöner ist – und mit einer süßen Belohnung noch viel besser.',
     section2_p1:
       'Wir hinterlassen an besonderen Orten kleine kreative Grüße, um der Welt etwas Schönes zurückzugeben. Doch die Reise endet für uns nicht beim Verstecken: Wir wollen wissen, wer diesen Moment mit uns teilt! Es ist jedes Mal ein Highlight, von euch zu lesen – schreibt uns kurz, schickt ein Foto oder hinterlasst einen Gedanken.',
+
+    // Recipe Section
+    recipe_tag: 'Handgemacht & Frisch gebacken',
+    recipe_title: 'Das Rezept: TörtchenFuchs Zimtschnecken',
+    recipe_lead:
+      'Der Duft von warmem Zimt, fluffigem Hefeteig und einer Prise Kardamom – so holst du dir den süßen Moment nach Hause.',
+    recipe_ingredients_title: 'Zutaten',
+    recipe_dough_title: 'Hefeteig',
+    recipe_dough_desc:
+      '250 ml Milch (lauwarm), 25 g frische Hefe, 75 g weiche Butter, 450 g Mehl, 50 g Zucker, 1 Prise Salz',
+    recipe_filling_title: 'Füllung',
+    recipe_filling_desc:
+      '110 g weiche Butter, 50 g Zimtzucker (20 g Zimt / 30 g Zucker), 1–2 TL Backkakao, 1 Prise Kardamom',
+    recipe_topping_title: 'Deko',
+    recipe_topping_desc: '1 verquirltes Ei mit etwas Milch, Hagelzucker',
+
+    recipe_prep_title: 'Zubereitung',
+    recipe_step1_title: '1. Vorbereiten',
+    recipe_step1_desc:
+      '5–6 EL der lauwarmen Milch mit der zerbröselten Hefe verrühren, bis sie sich auflöst. Die restliche lauwarme Milch mit den Butterwürfeln verschmelzen lassen (nicht zu heiß werden lassen!).',
+    recipe_step2_title: '2. Kneten',
+    recipe_step2_desc:
+      'Mehl, Zucker und Salz in einer Schüssel mischen. Die Hefemilch und die Butter-Milch-Mischung dazugeben. Mit den Knethaken einige Minuten zu einem elastischen, glatten Teig verkneten.',
+    recipe_step3_title: '3. Gehen lassen',
+    recipe_step3_desc:
+      'Teig abdecken und an einem warmen Ort ca. 1 Stunde gehen lassen, bis sich das Volumen sichtlich vergrößert hat.',
+    recipe_step4_title: '4. Ausrollen',
+    recipe_step4_desc:
+      'Den Teig einmal kurz einboxen und auf etwas Mehl zu einem Rechteck (ca. 40 x 60 cm) ausrollen.',
+    recipe_step5_title: '5. Füllen & Falten',
+    recipe_step5_desc:
+      'Die Zutaten für die Füllung verrühren und auf dem Teig verstreichen. Den Teig wie einen Brief in Dritteln zusammenschlagen (von der kurzen Seite zur Mitte, die andere Seite darüber klappen).',
+    recipe_step6_title: '6. Schneiden & Formen',
+    recipe_step6_desc:
+      'Den gefalteten Teig parallel zur kurzen Seite in 12 Streifen (je ca. 2 cm breit) schneiden. Jeden Streifen in sich verdrehen (zwirbeln) und wie eine Schnecke aufrollen. Die Enden unter dem Gebäck verstecken und die Knoten auf zwei Backbleche mit Backpapier legen.',
+    recipe_step7_title: '7. Zweites Gehen',
+    recipe_step7_desc:
+      'Abgedeckt nochmals 30 Minuten gehen lassen. Währenddessen den Ofen auf 200°C Ober-/Unterhitze vorheizen.',
+    recipe_step8_title: '8. Backen',
+    recipe_step8_desc:
+      'Mit dem verquirlten Ei bestreichen, mit Hagelzucker bestreuen und nacheinander 13–15 Minuten goldbraun backen.',
+
+    recipe_folding_title: 'Die Falttechnik (Illustriert)',
+    recipe_folding_lead:
+      'Mit unserer Schritt-für-Schritt Falt- und Zwirbeltechnik gelingen dir herrlich saftige und kunstvoll geformte Zimtschnecken.',
+    img_folding_1: folding1De,
+    img_folding_2: folding2De,
 
     section3_tag: 'Austausch & Kontakt',
     section3_title: 'Schreib uns!',
@@ -73,6 +126,7 @@ export const translations = {
   en: {
     nav_who: 'Who we are?',
     nav_why: 'Why do we do that?',
+    nav_recipe: 'The Recipe',
     nav_contact: 'Get in touch with us',
 
     brand_title: 'TörtchenFuchs',
@@ -96,7 +150,55 @@ export const translations = {
     section2_lead:
       'Because life is richer outdoors — and even sweeter with a delicious treat.',
     section2_p1:
-      'We leave little creative messages in special places to give something beautiful back to the world. But for us, the journey doesn’t end with hiding them: We want to know who’s sharing this moment with us! It’s always a highlight to hear from you—send us a quick note, share a photo, or leave a thought.',
+      'We believe the best memories are made when exploration, fresh air, and artisanal indulgence meet. Our QR trails invite you to keep your eyes open, discover new favorite spots, and savor the moment with all your senses.',
+
+    // Recipe Section
+    recipe_tag: 'Handcrafted & Freshly Baked',
+    recipe_title: 'The Recipe: TörtchenFuchs Cinnamon Buns',
+    recipe_lead:
+      'The heavenly aroma of warm cinnamon, fluffy yeast dough, and a touch of cardamom — bring our signature sweet moment right to your home.',
+    recipe_ingredients_title: 'Ingredients',
+    recipe_dough_title: 'Yeast Dough',
+    recipe_dough_desc:
+      '250 ml lukewarm milk, 25 g fresh yeast, 75 g softened butter, 450 g flour, 50 g sugar, 1 pinch of salt',
+    recipe_filling_title: 'Filling',
+    recipe_filling_desc:
+      '110 g softened butter, 50 g cinnamon sugar (20 g cinnamon / 30 g sugar), 1–2 tsp baking cocoa, 1 pinch of cardamom',
+    recipe_topping_title: 'Topping',
+    recipe_topping_desc: '1 whisked egg with a splash of milk, pearl sugar',
+
+    recipe_prep_title: 'Instructions',
+    recipe_step1_title: '1. Prepare',
+    recipe_step1_desc:
+      'Whisk 5–6 tbsp of lukewarm milk with the crumbled yeast until dissolved. Gently melt the butter cubes into the remaining lukewarm milk (do not overheat!).',
+    recipe_step2_title: '2. Knead',
+    recipe_step2_desc:
+      'Mix flour, sugar, and salt in a bowl. Add the yeast milk and the warm butter-milk mixture. Knead with dough hooks for several minutes until smooth, elastic, and supple.',
+    recipe_step3_title: '3. First Rise',
+    recipe_step3_desc:
+      'Cover the bowl and let the dough rise in a warm spot for about 1 hour until visibly doubled in size.',
+    recipe_step4_title: '4. Roll Out',
+    recipe_step4_desc:
+      'Gently punch down the dough and roll it out on a lightly floured surface into a rectangle (approx. 40 x 60 cm).',
+    recipe_step5_title: '5. Fill & Fold',
+    recipe_step5_desc:
+      'Stir the filling ingredients together and spread evenly across the dough. Fold the dough in thirds like a letter (fold from the short side to the center, then fold the opposite side over).',
+    recipe_step6_title: '6. Cut & Shape',
+    recipe_step6_desc:
+      'Cut the folded dough parallel to the short side into 12 strips (approx. 2 cm wide each). Twist each strip around itself and curl into a round spiral knot. Tuck the ends underneath and place onto two parchment-lined baking sheets.',
+    recipe_step7_title: '7. Second Rise',
+    recipe_step7_desc:
+      'Cover and let rise for another 30 minutes. Meanwhile, preheat the oven to 200°C (390°F) top/bottom heat.',
+    recipe_step8_title: '8. Bake',
+    recipe_step8_desc:
+      'Brush with the whisked egg wash, sprinkle generously with pearl sugar, and bake in batches for 13–15 minutes until golden brown.',
+
+    recipe_folding_title: 'The Folding Technique (Illustrated)',
+    recipe_folding_lead:
+      'Follow our illustrated folding and twisting guide for wonderfully juicy, bakery-style cinnamon knots.',
+    img_folding_1: folding1En,
+    img_folding_2: folding2En,
+
     section3_tag: 'Connection & Contact',
     section3_title: 'Get in touch with us',
     section3_subtitle:
@@ -195,6 +297,16 @@ export function updateDOM(): void {
       const key = el.getAttribute('data-i18n-placeholder') as keyof typeof dict;
       if (key && dict[key]) {
         el.placeholder = dict[key];
+      }
+    });
+
+  // Update localized image sources
+  document
+    .querySelectorAll<HTMLImageElement>('[data-i18n-src]')
+    .forEach((img) => {
+      const key = img.getAttribute('data-i18n-src') as keyof typeof dict;
+      if (key && dict[key]) {
+        img.src = dict[key];
       }
     });
 

@@ -211,6 +211,37 @@
           </span>
         </a>
 
+        <!-- Das Rezept -->
+        <a
+          href="#recipe"
+          data-nav-link
+          class="group relative flex h-10 w-10 items-center justify-center rounded-xl border border-transparent text-slate-300 transition-all hover:bg-white/10 hover:text-orange-400"
+          title="Das Rezept"
+        >
+          <svg
+            class="h-5 w-5 transition-transform group-hover:scale-110"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.8"
+              d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+            />
+          </svg>
+          <span
+            class="nav-dot absolute -left-1 h-1.5 w-1.5 rounded-full bg-transparent transition-all"
+          ></span>
+          <span
+            class="pointer-events-none absolute left-14 -translate-x-2 rounded-lg border border-white/10 bg-slate-900/95 px-3 py-1.5 text-xs font-semibold whitespace-nowrap text-slate-100 opacity-0 shadow-xl transition-all group-hover:translate-x-0 group-hover:opacity-100"
+            data-i18n="nav_recipe"
+          >
+            Das Rezept
+          </span>
+        </a>
+
         <!-- Schreib uns! (Contact) -->
         <a
           href="#contact"
@@ -402,6 +433,13 @@
             Warum tun wir das?
           </a>
           <a
+            href="#recipe"
+            class="flex items-center gap-3 rounded-xl px-4 py-3 font-medium text-slate-200 transition-all hover:bg-orange-500/15 hover:text-orange-400"
+            data-i18n="nav_recipe"
+          >
+            Das Rezept
+          </a>
+          <a
             href="#contact"
             class="flex items-center gap-3 rounded-xl px-4 py-3 font-medium text-slate-200 transition-all hover:bg-orange-500/15 hover:text-orange-400"
             data-i18n="nav_contact"
@@ -480,7 +518,8 @@
 
             <!-- Main Brand Title -->
             <h1
-              class="mb-3 text-5xl font-extrabold tracking-tight text-white drop-shadow-lg sm:text-7xl lg:text-8xl"
+              class="mb-3 text-5xl font-extrabold tracking-wider text-white drop-shadow-lg sm:text-7xl lg:text-8xl"
+              data-i18n="hero_title"
             >
               TörtchenFuchs
             </h1>
@@ -686,6 +725,394 @@
                   zu lesen – schreibt uns kurz, schickt ein Foto oder
                   hinterlasst einen Gedanken.
                 </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================= -->
+        <!-- SECTION: "Das Rezept: TörtchenFuchs Zimtschnecken"               -->
+        <!-- ================================================================= -->
+        <section
+          id="recipe"
+          class="relative z-10 scroll-mt-16 px-4 pt-10 pb-20 sm:scroll-mt-24 sm:px-6 lg:px-12"
+        >
+          <div class="mx-auto max-w-5xl">
+            <!-- Header Card -->
+            <div
+              class="glass-panel relative mb-12 overflow-hidden rounded-3xl border border-white/20 p-6 text-center shadow-2xl sm:p-12"
+            >
+              <!-- Tag Badge -->
+              <div
+                class="mb-4 inline-flex items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/20 px-3.5 py-1.5 text-xs font-semibold tracking-wider text-orange-300 uppercase"
+              >
+                <span class="h-2 w-2 rounded-full bg-orange-400"></span>
+                <span data-i18n="recipe_tag"
+                  >Handgemacht & Frisch gebacken</span
+                >
+              </div>
+
+              <h2
+                class="mb-4 text-3xl font-extrabold tracking-tight text-white sm:text-5xl"
+                data-i18n="recipe_title"
+              >
+                Das Rezept: TörtchenFuchs Zimtschnecken
+              </h2>
+
+              <p
+                class="mx-auto max-w-2xl text-base leading-relaxed text-slate-200 sm:text-lg"
+                data-i18n="recipe_lead"
+              >
+                Der Duft von warmem Zimt, fluffigem Hefeteig und einer Prise
+                Kardamom – so holst du dir den süßen Moment nach Hause.
+              </p>
+            </div>
+
+            <!-- Ingredients Grid (3 Cards) -->
+            <div class="mb-12">
+              <h3
+                class="mb-6 flex items-center gap-2 text-2xl font-bold tracking-tight text-white"
+                data-i18n="recipe_ingredients_title"
+              >
+                Zutaten
+              </h3>
+
+              <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+                <!-- Hefeteig -->
+                <div
+                  class="glass-panel rounded-2xl border border-white/15 p-6 shadow-xl transition-all hover:border-orange-500/40"
+                >
+                  <div class="mb-3 flex items-center gap-3">
+                    <div
+                      class="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500/20 text-orange-400"
+                    >
+                      <svg
+                        class="h-5 w-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                        />
+                      </svg>
+                    </div>
+                    <h4
+                      class="text-lg font-bold text-white"
+                      data-i18n="recipe_dough_title"
+                    >
+                      Hefeteig
+                    </h4>
+                  </div>
+                  <p
+                    class="text-sm leading-relaxed text-slate-200"
+                    data-i18n="recipe_dough_desc"
+                  >
+                    250 ml Milch (lauwarm), 25 g frische Hefe, 75 g weiche
+                    Butter, 450 g Mehl, 50 g Zucker, 1 Prise Salz
+                  </p>
+                </div>
+
+                <!-- Füllung -->
+                <div
+                  class="glass-panel rounded-2xl border border-white/15 p-6 shadow-xl transition-all hover:border-orange-500/40"
+                >
+                  <div class="mb-3 flex items-center gap-3">
+                    <div
+                      class="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500/20 text-orange-400"
+                    >
+                      <svg
+                        class="h-5 w-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"
+                        />
+                      </svg>
+                    </div>
+                    <h4
+                      class="text-lg font-bold text-white"
+                      data-i18n="recipe_filling_title"
+                    >
+                      Füllung
+                    </h4>
+                  </div>
+                  <p
+                    class="text-sm leading-relaxed text-slate-200"
+                    data-i18n="recipe_filling_desc"
+                  >
+                    110 g weiche Butter, 50 g Zimtzucker (20 g Zimt / 30 g
+                    Zucker), 1–2 TL Backkakao, 1 Prise Kardamom
+                  </p>
+                </div>
+
+                <!-- Deko -->
+                <div
+                  class="glass-panel rounded-2xl border border-white/15 p-6 shadow-xl transition-all hover:border-orange-500/40"
+                >
+                  <div class="mb-3 flex items-center gap-3">
+                    <div
+                      class="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500/20 text-orange-400"
+                    >
+                      <svg
+                        class="h-5 w-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                        />
+                      </svg>
+                    </div>
+                    <h4
+                      class="text-lg font-bold text-white"
+                      data-i18n="recipe_topping_title"
+                    >
+                      Deko
+                    </h4>
+                  </div>
+                  <p
+                    class="text-sm leading-relaxed text-slate-200"
+                    data-i18n="recipe_topping_desc"
+                  >
+                    1 verquirltes Ei mit etwas Milch, Hagelzucker
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step-by-Step Instructions -->
+            <div class="mb-14">
+              <h3
+                class="mb-6 flex items-center gap-2 text-2xl font-bold tracking-tight text-white"
+                data-i18n="recipe_prep_title"
+              >
+                Zubereitung
+              </h3>
+
+              <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                <!-- Step 1 -->
+                <div
+                  class="glass-panel flex flex-col rounded-2xl border border-white/15 p-5 shadow-lg"
+                >
+                  <div
+                    class="mb-2 text-base font-bold text-orange-400"
+                    data-i18n="recipe_step1_title"
+                  >
+                    1. Vorbereiten
+                  </div>
+                  <p
+                    class="text-xs leading-relaxed text-slate-200"
+                    data-i18n="recipe_step1_desc"
+                  >
+                    5–6 EL der lauwarmen Milch mit der zerbröselten Hefe
+                    verrühren, bis sie sich auflöst. Die restliche lauwarme
+                    Milch mit den Butterwürfeln verschmelzen lassen (nicht zu
+                    heiß werden lassen!).
+                  </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div
+                  class="glass-panel flex flex-col rounded-2xl border border-white/15 p-5 shadow-lg"
+                >
+                  <div
+                    class="mb-2 text-base font-bold text-orange-400"
+                    data-i18n="recipe_step2_title"
+                  >
+                    2. Kneten
+                  </div>
+                  <p
+                    class="text-xs leading-relaxed text-slate-200"
+                    data-i18n="recipe_step2_desc"
+                  >
+                    Mehl, Zucker und Salz in einer Schüssel mischen. Die
+                    Hefemilch und die Butter-Milch-Mischung dazugeben. Mit den
+                    Knethaken einige Minuten zu einem elastischen, glatten Teig
+                    verkneten.
+                  </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div
+                  class="glass-panel flex flex-col rounded-2xl border border-white/15 p-5 shadow-lg"
+                >
+                  <div
+                    class="mb-2 text-base font-bold text-orange-400"
+                    data-i18n="recipe_step3_title"
+                  >
+                    3. Gehen lassen
+                  </div>
+                  <p
+                    class="text-xs leading-relaxed text-slate-200"
+                    data-i18n="recipe_step3_desc"
+                  >
+                    Teig abdecken und an einem warmen Ort ca. 1 Stunde gehen
+                    lassen, bis sich das Volumen sichtlich vergrößert hat.
+                  </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div
+                  class="glass-panel flex flex-col rounded-2xl border border-white/15 p-5 shadow-lg"
+                >
+                  <div
+                    class="mb-2 text-base font-bold text-orange-400"
+                    data-i18n="recipe_step4_title"
+                  >
+                    4. Ausrollen
+                  </div>
+                  <p
+                    class="text-xs leading-relaxed text-slate-200"
+                    data-i18n="recipe_step4_desc"
+                  >
+                    Den Teig einmal kurz einboxen und auf etwas Mehl zu einem
+                    Rechteck (ca. 40 x 60 cm) ausrollen.
+                  </p>
+                </div>
+
+                <!-- Step 5 -->
+                <div
+                  class="glass-panel flex flex-col rounded-2xl border border-white/15 p-5 shadow-lg"
+                >
+                  <div
+                    class="mb-2 text-base font-bold text-orange-400"
+                    data-i18n="recipe_step5_title"
+                  >
+                    5. Füllen & Falten
+                  </div>
+                  <p
+                    class="text-xs leading-relaxed text-slate-200"
+                    data-i18n="recipe_step5_desc"
+                  >
+                    Die Zutaten für die Füllung verrühren und auf dem Teig
+                    verstreichen. Den Teig wie einen Brief in Dritteln
+                    zusammenschlagen (von der kurzen Seite zur Mitte, die andere
+                    Seite darüber klappen).
+                  </p>
+                </div>
+
+                <!-- Step 6 -->
+                <div
+                  class="glass-panel flex flex-col rounded-2xl border border-white/15 p-5 shadow-lg"
+                >
+                  <div
+                    class="mb-2 text-base font-bold text-orange-400"
+                    data-i18n="recipe_step6_title"
+                  >
+                    6. Schneiden & Formen
+                  </div>
+                  <p
+                    class="text-xs leading-relaxed text-slate-200"
+                    data-i18n="recipe_step6_desc"
+                  >
+                    Den gefalteten Teig parallel zur kurzen Seite in 12 Streifen
+                    (je ca. 2 cm breit) schneiden. Jeden Streifen in sich
+                    verdrehen (zwirbeln) und wie eine Schnecke aufrollen. Die
+                    Enden unter dem Gebäck verstecken und die Knoten auf zwei
+                    Backbleche mit Backpapier legen.
+                  </p>
+                </div>
+
+                <!-- Step 7 -->
+                <div
+                  class="glass-panel flex flex-col rounded-2xl border border-white/15 p-5 shadow-lg"
+                >
+                  <div
+                    class="mb-2 text-base font-bold text-orange-400"
+                    data-i18n="recipe_step7_title"
+                  >
+                    7. Zweites Gehen
+                  </div>
+                  <p
+                    class="text-xs leading-relaxed text-slate-200"
+                    data-i18n="recipe_step7_desc"
+                  >
+                    Abgedeckt nochmals 30 Minuten gehen lassen. Währenddessen
+                    den Ofen auf 200°C Ober-/Unterhitze vorheizen.
+                  </p>
+                </div>
+
+                <!-- Step 8 -->
+                <div
+                  class="glass-panel flex flex-col rounded-2xl border border-white/15 p-5 shadow-lg"
+                >
+                  <div
+                    class="mb-2 text-base font-bold text-orange-400"
+                    data-i18n="recipe_step8_title"
+                  >
+                    8. Backen
+                  </div>
+                  <p
+                    class="text-xs leading-relaxed text-slate-200"
+                    data-i18n="recipe_step8_desc"
+                  >
+                    Mit dem verquirlten Ei bestreichen, mit Hagelzucker
+                    bestreuen und nacheinander 13–15 Minuten goldbraun backen.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Illustrated Folding Technique Cards -->
+            <div
+              class="glass-panel overflow-hidden rounded-3xl border border-white/20 p-6 shadow-2xl sm:p-10"
+            >
+              <div class="mx-auto mb-8 max-w-2xl text-center">
+                <h3
+                  class="mb-3 text-2xl font-bold tracking-tight text-white sm:text-3xl"
+                  data-i18n="recipe_folding_title"
+                >
+                  Die Falttechnik (Illustriert)
+                </h3>
+                <p
+                  class="text-sm leading-relaxed text-slate-200 sm:text-base"
+                  data-i18n="recipe_folding_lead"
+                >
+                  Mit unserer Schritt-für-Schritt Falt- und Zwirbeltechnik
+                  gelingen dir herrlich saftige und kunstvoll geformte
+                  Zimtschnecken.
+                </p>
+              </div>
+
+              <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+                <!-- Folding Guide 1 -->
+                <div
+                  class="group relative flex flex-col items-center overflow-hidden rounded-2xl border border-white/20 bg-slate-900/60 p-4 shadow-xl backdrop-blur-md transition-all duration-300 hover:border-orange-500/40"
+                >
+                  <img
+                    src="/src/assets/folding_1.jpeg"
+                    data-i18n-src="img_folding_1"
+                    alt="Schritt 1 & 2: Teig Falttechnik"
+                    class="h-auto w-full max-w-md rounded-xl object-contain shadow-lg transition-transform duration-300 group-hover:scale-[1.02]"
+                    loading="lazy"
+                  />
+                </div>
+
+                <!-- Folding Guide 2 -->
+                <div
+                  class="group relative flex flex-col items-center overflow-hidden rounded-2xl border border-white/20 bg-slate-900/60 p-4 shadow-xl backdrop-blur-md transition-all duration-300 hover:border-orange-500/40"
+                >
+                  <img
+                    src="/src/assets/folding_2.jpeg"
+                    data-i18n-src="img_folding_2"
+                    alt="Schritt 3 bis 5: Zimtschnecken formen und backen"
+                    class="h-auto w-full max-w-md rounded-xl object-contain shadow-lg transition-transform duration-300 group-hover:scale-[1.02]"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
           </div>

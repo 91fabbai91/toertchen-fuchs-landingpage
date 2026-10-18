@@ -86,24 +86,36 @@ export function initContactForm(): void {
       }
 
       try {
-        const result: CompressionResult = await compressImage(file, 1600, 0.82);
-        const safeBaseName = file.name
-          .replace(/\.[^/.]+$/, '')
-          .replace(/[^a-zA-Z0-9_-]/g, '_');
-        activeCompressedPhoto = {
-          blob: result.blob,
-          fileName: `${safeBaseName || 'photo'}.jpg`,
-        };
+        const result: CompressionResult = await compressImage(file);
+
+        if (result.skipped) {
+          activeCompressedPhoto = {
+            blob: file,
+            fileName: file.name,
+          };
+        } else {
+          const safeBaseName = file.name
+            .replace(/\.[^/.]+$/, '')
+            .replace(/[^a-zA-Z0-9_-]/g, '_');
+          activeCompressedPhoto = {
+            blob: result.blob,
+            fileName: `${safeBaseName || 'photo'}.jpg`,
+          };
+        }
 
         if (activePreviewUrl) {
           URL.revokeObjectURL(activePreviewUrl);
         }
-        activePreviewUrl = URL.createObjectURL(result.blob);
+        activePreviewUrl = URL.createObjectURL(activeCompressedPhoto.blob);
 
         if (previewImg) previewImg.src = activePreviewUrl;
         if (previewName) previewName.textContent = file.name;
         if (previewSize) {
-          previewSize.textContent = `${formatFileSize(result.originalSize)} ➔ ${formatFileSize(result.compressedSize)}`;
+          if (result.skipped) {
+            previewSize.textContent = `${formatFileSize(result.originalSize)} (optimal)`;
+          } else {
+            previewSize.textContent = `${formatFileSize(result.originalSize)} ➔ ${formatFileSize(result.compressedSize)}`;
+          }
         }
 
         if (photoUploadLabel) photoUploadLabel.classList.add('hidden');
