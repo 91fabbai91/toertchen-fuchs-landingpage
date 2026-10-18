@@ -28,12 +28,20 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>TörtchenFuchs – Das Zimtschnecken-Rezept</title>
 
-    <!-- FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload critical self-hosted fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/fonts/plus-jakarta-sans-v12-latin-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/outfit-v15-latin-700.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
   </head>
   <body
@@ -527,26 +535,56 @@
             <div
               class="group relative flex flex-col items-center overflow-hidden rounded-2xl border border-white/20 bg-slate-900/60 p-4 shadow-xl backdrop-blur-md transition-all duration-300 hover:border-orange-500/40"
             >
-              <img
-                src="/src/assets/folding_1.jpeg"
-                data-i18n-src="img_folding_1"
-                alt="Schritt 1 & 2: Teig Falttechnik"
-                class="h-auto w-full max-w-md rounded-xl object-contain shadow-lg transition-transform duration-300 group-hover:scale-[1.02]"
-                loading="lazy"
-              />
+              <picture>
+                <source
+                  data-i18n-srcset="img_folding_1_avif"
+                  srcset="/src/assets/folding_1.avif"
+                  type="image/avif"
+                />
+                <source
+                  data-i18n-srcset="img_folding_1_webp"
+                  srcset="/src/assets/folding_1.webp"
+                  type="image/webp"
+                />
+                <img
+                  src="/src/assets/folding_1.jpeg"
+                  data-i18n-src="img_folding_1"
+                  alt="Schritt 1 & 2: Teig Falttechnik"
+                  width="765"
+                  height="1024"
+                  class="h-auto w-full max-w-md rounded-xl object-contain shadow-lg transition-transform duration-300 group-hover:scale-[1.02]"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
             </div>
 
             <!-- Folding Guide 2 -->
             <div
               class="group relative flex flex-col items-center overflow-hidden rounded-2xl border border-white/20 bg-slate-900/60 p-4 shadow-xl backdrop-blur-md transition-all duration-300 hover:border-orange-500/40"
             >
-              <img
-                src="/src/assets/folding_2.jpeg"
-                data-i18n-src="img_folding_2"
-                alt="Schritt 3 bis 5: Zimtschnecken formen und backen"
-                class="h-auto w-full max-w-md rounded-xl object-contain shadow-lg transition-transform duration-300 group-hover:scale-[1.02]"
-                loading="lazy"
-              />
+              <picture>
+                <source
+                  data-i18n-srcset="img_folding_2_avif"
+                  srcset="/src/assets/folding_2.avif"
+                  type="image/avif"
+                />
+                <source
+                  data-i18n-srcset="img_folding_2_webp"
+                  srcset="/src/assets/folding_2.webp"
+                  type="image/webp"
+                />
+                <img
+                  src="/src/assets/folding_2.jpeg"
+                  data-i18n-src="img_folding_2"
+                  alt="Schritt 3 bis 5: Zimtschnecken formen und backen"
+                  width="765"
+                  height="1024"
+                  class="h-auto w-full max-w-md rounded-xl object-contain shadow-lg transition-transform duration-300 group-hover:scale-[1.02]"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
             </div>
           </div>
         </div>

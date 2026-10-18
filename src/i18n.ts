@@ -1,7 +1,18 @@
 import folding1De from './assets/folding_1.jpeg';
+import folding1DeWebp from './assets/folding_1.webp';
+import folding1DeAvif from './assets/folding_1.avif';
+
 import folding2De from './assets/folding_2.jpeg';
+import folding2DeWebp from './assets/folding_2.webp';
+import folding2DeAvif from './assets/folding_2.avif';
+
 import folding1En from './assets/folding_1_en.jpeg';
+import folding1EnWebp from './assets/folding_1_en.webp';
+import folding1EnAvif from './assets/folding_1_en.avif';
+
 import folding2En from './assets/folding_2_en.jpeg';
+import folding2EnWebp from './assets/folding_2_en.webp';
+import folding2EnAvif from './assets/folding_2_en.avif';
 
 export type Language = 'de' | 'en';
 
@@ -83,7 +94,11 @@ export const translations = {
     recipe_footer_cta: 'Zimtschnecken nachgebacken? Schreib uns dein Feedback!',
     recipe_footer_feedback_btn: 'Nachricht schreiben',
     img_folding_1: folding1De,
+    img_folding_1_webp: folding1DeWebp,
+    img_folding_1_avif: folding1DeAvif,
     img_folding_2: folding2De,
+    img_folding_2_webp: folding2DeWebp,
+    img_folding_2_avif: folding2DeAvif,
 
     // Easter Egg Section (on index.html)
     easter_egg_tag: '🦊 Psst... Geheimtipp!',
@@ -211,7 +226,11 @@ export const translations = {
     recipe_footer_cta: 'Baked our cinnamon buns? Send us your feedback!',
     recipe_footer_feedback_btn: 'Write to us',
     img_folding_1: folding1En,
+    img_folding_1_webp: folding1EnWebp,
+    img_folding_1_avif: folding1EnAvif,
     img_folding_2: folding2En,
+    img_folding_2_webp: folding2EnWebp,
+    img_folding_2_avif: folding2EnAvif,
 
     // Easter Egg Section (on index.html)
     easter_egg_tag: '🦊 Psst... Secret Tip!',
@@ -322,13 +341,22 @@ export function updateDOM(): void {
       }
     });
 
-  // Update localized image sources
+  // Update localized image sources & responsive picture sources
   document
     .querySelectorAll<HTMLImageElement>('[data-i18n-src]')
     .forEach((img) => {
       const key = img.getAttribute('data-i18n-src') as keyof typeof dict;
       if (key && dict[key]) {
         img.src = dict[key];
+      }
+    });
+
+  document
+    .querySelectorAll<HTMLSourceElement>('[data-i18n-srcset]')
+    .forEach((source) => {
+      const key = source.getAttribute('data-i18n-srcset') as keyof typeof dict;
+      if (key && dict[key]) {
+        source.srcset = dict[key];
       }
     });
 
