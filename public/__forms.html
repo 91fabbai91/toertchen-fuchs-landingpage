@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Netlify Form Detection Blueprint</title>
+  </head>
+  <body>
+    <!--
+      This static blueprint form is used exclusively by Netlify's build-time parser
+      to reliably register the form in the Netlify Dashboard and notification settings.
+    -->
+    <form
+      name="contact"
+      method="POST"
+      action="/"
+      netlify
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      data-netlify-honeypot="bot-field"
+      enctype="multipart/form-data"
+      hidden
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="hidden" name="subject" value="Neuer TörtchenFuchs-Fund!" />
+      <input type="text" name="bot-field" />
+      <input type="hidden" name="loc-id" />
+      <input type="hidden" name="device" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="qr_location" />
+      <input type="file" name="photo" />
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>
