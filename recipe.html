@@ -1,0 +1,863 @@
+<!doctype html>
+<html lang="de" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- IMMEDIATE ACCESS GUARD: Direct external visits redirect to homepage -->
+    <script>
+      (function () {
+        try {
+          var unlocked = sessionStorage.getItem('tf_easter_egg_unlocked');
+          var fromSite =
+            document.referrer &&
+            document.referrer.indexOf(window.location.host) !== -1;
+          if (!unlocked && !fromSite) {
+            window.location.replace('/');
+          }
+        } catch (e) {
+          window.location.replace('/');
+        }
+      })();
+    </script>
+
+    <!-- FAVICONS & METADATA -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>TörtchenFuchs – Das Zimtschnecken-Rezept</title>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="min-h-screen bg-slate-950 font-sans text-slate-100 selection:bg-orange-500 selection:text-white"
+  >
+    <!-- AMBIENT BACKGROUND GLOWS -->
+    <div
+      class="pointer-events-none fixed inset-0 z-0 overflow-hidden opacity-40"
+      aria-hidden="true"
+    >
+      <div
+        class="absolute -top-[20%] left-1/2 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-orange-600/20 blur-[130px]"
+      ></div>
+      <div
+        class="absolute top-[40%] -left-[10%] h-[600px] w-[600px] rounded-full bg-amber-600/15 blur-[140px]"
+      ></div>
+      <div
+        class="absolute -right-[10%] bottom-[10%] h-[700px] w-[700px] rounded-full bg-orange-700/15 blur-[150px]"
+      ></div>
+    </div>
+
+    <!-- MAIN WRAPPER -->
+    <div class="relative z-10 flex min-h-screen flex-col justify-between">
+      <!-- TOP NAVIGATION BAR -->
+      <header
+        class="sticky top-0 z-40 border-b border-white/10 bg-slate-950/80 px-4 py-3 backdrop-blur-md sm:px-8"
+      >
+        <div class="mx-auto flex max-w-5xl items-center justify-between gap-4">
+          <!-- Back to Homepage Button -->
+          <a
+            href="/"
+            class="group inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-slate-200 backdrop-blur-md transition-all hover:border-orange-500/40 hover:bg-orange-500/15 hover:text-orange-400"
+          >
+            <svg
+              class="h-4 w-4 transition-transform group-hover:-translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
+            </svg>
+            <span data-i18n="recipe_back_btn">Zurück zur Startseite</span>
+          </a>
+
+          <!-- Brand Logo & Name -->
+          <a href="/" class="flex items-center gap-2.5">
+            <img
+              src="/src/assets/Fuchs_farbig.svg"
+              alt="TörtchenFuchs Logo"
+              class="h-8 w-8 drop-shadow"
+            />
+            <span
+              class="text-lg font-extrabold tracking-wider text-white"
+              data-i18n="brand_title"
+            >
+              TörtchenFuchs
+            </span>
+          </a>
+
+          <!-- Language Flags Toggle -->
+          <div
+            class="flex items-center gap-1.5 rounded-xl border border-white/10 bg-black/40 p-1"
+          >
+            <button
+              type="button"
+              data-lang-btn="de"
+              class="cursor-pointer rounded p-1 transition-transform hover:bg-white/10"
+              title="Deutsch"
+              aria-label="Deutsch"
+            >
+              <svg
+                class="h-4 w-6 overflow-hidden rounded shadow-sm"
+                viewBox="0 0 5 3"
+              >
+                <rect width="5" height="3" fill="#000" />
+                <rect width="5" height="2" y="1" fill="#D00" />
+                <rect width="5" height="1" y="2" fill="#FFCE00" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              data-lang-btn="en"
+              class="cursor-pointer rounded p-1 transition-transform hover:bg-white/10"
+              title="English"
+              aria-label="English"
+            >
+              <svg
+                class="h-4 w-6 overflow-hidden rounded shadow-sm"
+                viewBox="0 0 60 30"
+              >
+                <clipPath id="sm">
+                  <path d="M0,0 v30 h60 v-30 z" />
+                </clipPath>
+                <clipPath id="tm">
+                  <path
+                    d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"
+                  />
+                </clipPath>
+                <g clip-path="url(#sm)">
+                  <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
+                  <path
+                    d="M0,0 L60,30 M60,0 L0,30"
+                    stroke="#fff"
+                    stroke-width="6"
+                  />
+                  <path
+                    d="M0,0 L60,30 M60,0 L0,30"
+                    clip-path="url(#tm)"
+                    stroke="#C8102E"
+                    stroke-width="4"
+                  />
+                  <path
+                    d="M30,0 v30 M0,15 h60"
+                    stroke="#fff"
+                    stroke-width="10"
+                  />
+                  <path
+                    d="M30,0 v30 M0,15 h60"
+                    stroke="#C8102E"
+                    stroke-width="6"
+                  />
+                </g>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- RECIPE MAIN CONTENT -->
+      <main class="mx-auto w-full max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
+        <!-- Header Card -->
+        <div
+          class="glass-panel relative mb-12 overflow-hidden rounded-3xl border border-white/20 p-6 text-center shadow-2xl sm:p-12"
+        >
+          <!-- Mascot Easter Egg Badge -->
+          <div
+            class="mb-4 inline-flex items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/20 px-4 py-1.5 text-xs font-semibold tracking-wider text-orange-300 uppercase shadow-md"
+          >
+            <span
+              class="h-2 w-2 animate-pulse rounded-full bg-orange-400"
+            ></span>
+            <span data-i18n="recipe_tag">Handgemacht & Frisch gebacken</span>
+          </div>
+
+          <h1
+            class="mb-4 text-3xl font-extrabold tracking-tight text-white sm:text-5xl"
+            data-i18n="recipe_title"
+          >
+            Das Rezept: TörtchenFuchs Zimtschnecken
+          </h1>
+
+          <p
+            class="mx-auto max-w-2xl text-base leading-relaxed text-slate-200 sm:text-lg"
+            data-i18n="recipe_lead"
+          >
+            Der Duft von warmem Zimt, fluffigem Hefeteig und einer Prise
+            Kardamom – so holst du dir den süßen Moment nach Hause.
+          </p>
+        </div>
+
+        <!-- Ingredients Grid (3 Cards with Line Breaks) -->
+        <div class="mb-14">
+          <h2
+            class="mb-6 flex items-center gap-2.5 text-2xl font-bold tracking-tight text-white"
+            data-i18n="recipe_ingredients_title"
+          >
+            Zutaten
+          </h2>
+
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+            <!-- Card 1: Hefeteig -->
+            <div
+              class="glass-panel flex flex-col justify-between rounded-2xl border border-white/15 p-6 shadow-xl transition-all hover:border-orange-500/40"
+            >
+              <div>
+                <div class="mb-4 flex items-center gap-3">
+                  <div
+                    class="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500/20 text-orange-400"
+                  >
+                    <svg
+                      class="h-5 w-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                      />
+                    </svg>
+                  </div>
+                  <h3
+                    class="text-lg font-bold text-white"
+                    data-i18n="recipe_dough_title"
+                  >
+                    Hefeteig
+                  </h3>
+                </div>
+                <p
+                  class="text-sm leading-relaxed whitespace-pre-line text-slate-200"
+                  data-i18n="recipe_dough_desc"
+                >
+                  250 ml Milch (lauwarm) 25 g frische Hefe 75 g weiche Butter
+                  450 g Mehl 50 g Zucker 1 Prise Salz
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 2: Füllung -->
+            <div
+              class="glass-panel flex flex-col justify-between rounded-2xl border border-white/15 p-6 shadow-xl transition-all hover:border-orange-500/40"
+            >
+              <div>
+                <div class="mb-4 flex items-center gap-3">
+                  <div
+                    class="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500/20 text-orange-400"
+                  >
+                    <svg
+                      class="h-5 w-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"
+                      />
+                    </svg>
+                  </div>
+                  <h3
+                    class="text-lg font-bold text-white"
+                    data-i18n="recipe_filling_title"
+                  >
+                    Füllung
+                  </h3>
+                </div>
+                <p
+                  class="text-sm leading-relaxed whitespace-pre-line text-slate-200"
+                  data-i18n="recipe_filling_desc"
+                >
+                  110 g weiche Butter 50 g Zimtzucker (20 g Zimt / 30 g Zucker)
+                  1–2 TL Backkakao 1 Prise Kardamom
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 3: Deko -->
+            <div
+              class="glass-panel flex flex-col justify-between rounded-2xl border border-white/15 p-6 shadow-xl transition-all hover:border-orange-500/40"
+            >
+              <div>
+                <div class="mb-4 flex items-center gap-3">
+                  <div
+                    class="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500/20 text-orange-400"
+                  >
+                    <svg
+                      class="h-5 w-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                      />
+                    </svg>
+                  </div>
+                  <h3
+                    class="text-lg font-bold text-white"
+                    data-i18n="recipe_topping_title"
+                  >
+                    Deko
+                  </h3>
+                </div>
+                <p
+                  class="text-sm leading-relaxed whitespace-pre-line text-slate-200"
+                  data-i18n="recipe_topping_desc"
+                >
+                  1 verquirltes Ei mit etwas Milch Hagelzucker
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8-Step Instructions Grid -->
+        <div class="mb-14">
+          <h2
+            class="mb-6 flex items-center gap-2.5 text-2xl font-bold tracking-tight text-white"
+            data-i18n="recipe_prep_title"
+          >
+            Zubereitung
+          </h2>
+
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <!-- Step 1 -->
+            <div
+              class="glass-panel flex flex-col rounded-2xl border border-white/15 p-5 shadow-lg"
+            >
+              <div
+                class="mb-2 text-base font-bold text-orange-400"
+                data-i18n="recipe_step1_title"
+              >
+                1. Vorbereiten
+              </div>
+              <p
+                class="text-xs leading-relaxed text-slate-200"
+                data-i18n="recipe_step1_desc"
+              >
+                5–6 EL der lauwarmen Milch mit der zerbröselten Hefe verrühren,
+                bis sie sich auflöst. Die restliche lauwarme Milch mit den
+                Butterwürfeln verschmelzen lassen (nicht zu heiß werden
+                lassen!).
+              </p>
+            </div>
+
+            <!-- Step 2 -->
+            <div
+              class="glass-panel flex flex-col rounded-2xl border border-white/15 p-5 shadow-lg"
+            >
+              <div
+                class="mb-2 text-base font-bold text-orange-400"
+                data-i18n="recipe_step2_title"
+              >
+                2. Kneten
+              </div>
+              <p
+                class="text-xs leading-relaxed text-slate-200"
+                data-i18n="recipe_step2_desc"
+              >
+                Mehl, Zucker und Salz in einer Schüssel mischen. Die Hefemilch
+                und die Butter-Milch-Mischung dazugeben. Mit den Knethaken
+                einige Minuten zu einem elastischen, glatten Teig verkneten.
+              </p>
+            </div>
+
+            <!-- Step 3 -->
+            <div
+              class="glass-panel flex flex-col rounded-2xl border border-white/15 p-5 shadow-lg"
+            >
+              <div
+                class="mb-2 text-base font-bold text-orange-400"
+                data-i18n="recipe_step3_title"
+              >
+                3. Gehen lassen
+              </div>
+              <p
+                class="text-xs leading-relaxed text-slate-200"
+                data-i18n="recipe_step3_desc"
+              >
+                Teig abdecken und an einem warmen Ort ca. 1 Stunde gehen lassen,
+                bis sich das Volumen sichtlich vergrößert hat.
+              </p>
+            </div>
+
+            <!-- Step 4 -->
+            <div
+              class="glass-panel flex flex-col rounded-2xl border border-white/15 p-5 shadow-lg"
+            >
+              <div
+                class="mb-2 text-base font-bold text-orange-400"
+                data-i18n="recipe_step4_title"
+              >
+                4. Ausrollen
+              </div>
+              <p
+                class="text-xs leading-relaxed text-slate-200"
+                data-i18n="recipe_step4_desc"
+              >
+                Den Teig einmal kurz einboxen und auf etwas Mehl zu einem
+                Rechteck (ca. 40 x 60 cm) ausrollen.
+              </p>
+            </div>
+
+            <!-- Step 5 -->
+            <div
+              class="glass-panel flex flex-col rounded-2xl border border-white/15 p-5 shadow-lg"
+            >
+              <div
+                class="mb-2 text-base font-bold text-orange-400"
+                data-i18n="recipe_step5_title"
+              >
+                5. Füllen & Falten
+              </div>
+              <p
+                class="text-xs leading-relaxed text-slate-200"
+                data-i18n="recipe_step5_desc"
+              >
+                Die Zutaten für die Füllung verrühren und auf dem Teig
+                verstreichen. Den Teig wie einen Brief in Dritteln
+                zusammenschlagen (von der kurzen Seite zur Mitte, die andere
+                Seite darüber klappen).
+              </p>
+            </div>
+
+            <!-- Step 6 -->
+            <div
+              class="glass-panel flex flex-col rounded-2xl border border-white/15 p-5 shadow-lg"
+            >
+              <div
+                class="mb-2 text-base font-bold text-orange-400"
+                data-i18n="recipe_step6_title"
+              >
+                6. Schneiden & Formen
+              </div>
+              <p
+                class="text-xs leading-relaxed text-slate-200"
+                data-i18n="recipe_step6_desc"
+              >
+                Den gefalteten Teig parallel zur kurzen Seite in 12 Streifen (je
+                ca. 2 cm breit) schneiden. Jeden Streifen in sich verdrehen
+                (zwirbeln) und wie eine Schnecke aufrollen. Die Enden unter dem
+                Gebäck verstecken und die Knoten auf zwei Backbleche mit
+                Backpapier legen.
+              </p>
+            </div>
+
+            <!-- Step 7 -->
+            <div
+              class="glass-panel flex flex-col rounded-2xl border border-white/15 p-5 shadow-lg"
+            >
+              <div
+                class="mb-2 text-base font-bold text-orange-400"
+                data-i18n="recipe_step7_title"
+              >
+                7. Zweites Gehen
+              </div>
+              <p
+                class="text-xs leading-relaxed text-slate-200"
+                data-i18n="recipe_step7_desc"
+              >
+                Abgedeckt nochmals 30 Minuten gehen lassen. Währenddessen den
+                Ofen auf 200°C Ober-/Unterhitze vorheizen.
+              </p>
+            </div>
+
+            <!-- Step 8 -->
+            <div
+              class="glass-panel flex flex-col rounded-2xl border border-white/15 p-5 shadow-lg"
+            >
+              <div
+                class="mb-2 text-base font-bold text-orange-400"
+                data-i18n="recipe_step8_title"
+              >
+                8. Backen
+              </div>
+              <p
+                class="text-xs leading-relaxed text-slate-200"
+                data-i18n="recipe_step8_desc"
+              >
+                Mit dem verquirlten Ei bestreichen, mit Hagelzucker bestreuen
+                und nacheinander 13–15 Minuten goldbraun backen.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Illustrated Folding Technique Cards -->
+        <div
+          class="glass-panel mb-14 overflow-hidden rounded-3xl border border-white/20 p-6 shadow-2xl sm:p-10"
+        >
+          <div class="mx-auto mb-8 max-w-2xl text-center">
+            <h2
+              class="mb-3 text-2xl font-bold tracking-tight text-white sm:text-3xl"
+              data-i18n="recipe_folding_title"
+            >
+              Die Falttechnik (Illustriert)
+            </h2>
+            <p
+              class="text-sm leading-relaxed text-slate-200 sm:text-base"
+              data-i18n="recipe_folding_lead"
+            >
+              Mit unserer Schritt-für-Schritt Falt- und Zwirbeltechnik gelingen
+              dir herrlich saftige und kunstvoll geformte Zimtschnecken.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+            <!-- Folding Guide 1 -->
+            <div
+              class="group relative flex flex-col items-center overflow-hidden rounded-2xl border border-white/20 bg-slate-900/60 p-4 shadow-xl backdrop-blur-md transition-all duration-300 hover:border-orange-500/40"
+            >
+              <img
+                src="/src/assets/folding_1.jpeg"
+                data-i18n-src="img_folding_1"
+                alt="Schritt 1 & 2: Teig Falttechnik"
+                class="h-auto w-full max-w-md rounded-xl object-contain shadow-lg transition-transform duration-300 group-hover:scale-[1.02]"
+                loading="lazy"
+              />
+            </div>
+
+            <!-- Folding Guide 2 -->
+            <div
+              class="group relative flex flex-col items-center overflow-hidden rounded-2xl border border-white/20 bg-slate-900/60 p-4 shadow-xl backdrop-blur-md transition-all duration-300 hover:border-orange-500/40"
+            >
+              <img
+                src="/src/assets/folding_2.jpeg"
+                data-i18n-src="img_folding_2"
+                alt="Schritt 3 bis 5: Zimtschnecken formen und backen"
+                class="h-auto w-full max-w-md rounded-xl object-contain shadow-lg transition-transform duration-300 group-hover:scale-[1.02]"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- BOTTOM ACTION / RETURN CARD -->
+        <div
+          class="glass-panel relative overflow-hidden rounded-3xl border border-white/20 p-8 text-center shadow-2xl sm:p-12"
+        >
+          <div class="mx-auto max-w-xl">
+            <div class="mb-4 text-4xl">🦊</div>
+            <h3
+              class="mb-3 text-2xl font-bold tracking-tight text-white sm:text-3xl"
+              data-i18n="recipe_footer_cta"
+            >
+              Zimtschnecken nachgebacken? Schreib uns dein Feedback!
+            </h3>
+            <div
+              class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row"
+            >
+              <a
+                href="/#contact"
+                class="btn-primary flex w-full cursor-pointer items-center justify-center gap-2 rounded-full px-8 py-3.5 text-base font-bold sm:w-auto"
+                data-i18n="recipe_footer_feedback_btn"
+              >
+                Nachricht schreiben
+              </a>
+              <a
+                href="/"
+                class="btn-secondary flex w-full cursor-pointer items-center justify-center gap-2 rounded-full px-8 py-3.5 text-base font-semibold sm:w-auto"
+                data-i18n="recipe_back_btn"
+              >
+                Zurück zur Startseite
+              </a>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- FOOTER -->
+      <footer
+        class="border-t border-white/10 bg-slate-950/90 px-4 py-8 sm:px-6 lg:px-12"
+      >
+        <div
+          class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-6 text-sm text-slate-400 sm:flex-row"
+        >
+          <div class="flex items-center gap-3">
+            <img
+              src="/src/assets/Fuchs_farbig.svg"
+              alt="TörtchenFuchs Logo"
+              class="h-7 w-7"
+            />
+            <span class="font-semibold text-slate-200">TörtchenFuchs</span>
+            <span class="hidden text-slate-600 sm:inline">|</span>
+            <span class="text-xs text-slate-400">
+              © 2026.
+              <span data-i18n="footer_rights">Alle Rechte vorbehalten.</span>
+            </span>
+          </div>
+
+          <div class="flex items-center gap-6">
+            <button
+              type="button"
+              data-modal-target="impressum-modal"
+              class="cursor-pointer text-xs text-slate-300 underline-offset-4 transition-colors hover:text-orange-400 hover:underline sm:text-sm"
+              data-i18n="link_impressum"
+            >
+              Impressum
+            </button>
+            <button
+              type="button"
+              data-modal-target="privacy-modal"
+              class="cursor-pointer text-xs text-slate-300 underline-offset-4 transition-colors hover:text-orange-400 hover:underline sm:text-sm"
+              data-i18n="link_privacy"
+            >
+              Datenschutz
+            </button>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- LEGAL MODALS (Impressum & Privacy Policy with Protected Email)    -->
+    <!-- ================================================================= -->
+
+    <!-- IMPRESSUM MODAL -->
+    <div
+      id="impressum-modal"
+      class="pointer-events-none fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 opacity-0 backdrop-blur-md transition-opacity duration-300"
+      role="dialog"
+      aria-labelledby="impressum-title"
+      aria-modal="true"
+    >
+      <div
+        class="modal-panel glass-panel max-h-[90vh] w-full max-w-lg scale-95 transform overflow-y-auto rounded-3xl border border-white/20 p-6 shadow-2xl transition-transform duration-300 sm:p-8"
+      >
+        <div
+          class="mb-6 flex items-center justify-between border-b border-white/10 pb-4"
+        >
+          <h3
+            id="impressum-title"
+            class="text-2xl font-bold text-white"
+            data-i18n="impressum_title"
+          >
+            Impressum
+          </h3>
+          <button
+            type="button"
+            data-modal-close
+            class="cursor-pointer rounded-xl bg-white/10 p-2 text-slate-300 hover:bg-white/15 hover:text-white"
+            aria-label="Schließen"
+          >
+            <svg
+              class="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div class="space-y-5 text-sm leading-relaxed text-slate-200">
+          <div>
+            <h4 class="mb-1 text-base font-bold text-white">
+              Angaben gemäß § 5 DDG
+            </h4>
+            <p class="font-medium text-slate-100">Fabian Baier</p>
+            <p>Elgarstr. 3</p>
+            <p>30989 Gehrden</p>
+            <p>Deutschland</p>
+          </div>
+
+          <div>
+            <h4 class="mb-1 text-base font-bold text-white">Kontakt</h4>
+            <div class="flex flex-col gap-2 pt-1 sm:flex-row sm:items-center">
+              <span class="text-slate-300">E-Mail:</span>
+              <span
+                data-protected-email
+                class="cursor-pointer font-mono text-orange-400 underline hover:text-orange-300"
+                title="Hier klicken, um eine E-Mail zu senden"
+              ></span>
+              <button
+                type="button"
+                data-copy-email
+                class="cursor-pointer rounded-lg bg-white/15 px-2.5 py-1 text-xs font-semibold text-slate-100 transition-all hover:bg-white/25"
+                data-i18n="copy_email"
+              >
+                E-Mail kopieren
+              </button>
+            </div>
+            <p class="mt-2 text-xs text-slate-400">
+              (Aus Spamschutzgründen wird die E-Mail-Adresse für automatisierte
+              Web-Crawler verschleiert dargestellt.)
+            </p>
+          </div>
+
+          <div>
+            <h4 class="mb-1 text-base font-bold text-white">
+              Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
+            </h4>
+            <p class="font-medium text-slate-100">Fabian Baier</p>
+            <p>Elgarstr. 3, 30989 Gehrden</p>
+          </div>
+
+          <div class="flex justify-end border-t border-white/10 pt-4">
+            <button
+              type="button"
+              data-modal-close
+              class="btn-secondary cursor-pointer rounded-xl px-5 py-2 text-sm font-semibold"
+              data-i18n="modal_close"
+            >
+              Schließen
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRIVACY POLICY (DATENSCHUTZ) MODAL -->
+    <div
+      id="privacy-modal"
+      class="pointer-events-none fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 opacity-0 backdrop-blur-md transition-opacity duration-300"
+      role="dialog"
+      aria-labelledby="privacy-title"
+      aria-modal="true"
+    >
+      <div
+        class="modal-panel glass-panel max-h-[90vh] w-full max-w-2xl scale-95 transform overflow-y-auto rounded-3xl border border-white/20 p-6 shadow-2xl transition-transform duration-300 sm:p-8"
+      >
+        <div
+          class="mb-6 flex items-center justify-between border-b border-white/10 pb-4"
+        >
+          <h3
+            id="privacy-title"
+            class="text-2xl font-bold text-white"
+            data-i18n="privacy_title"
+          >
+            Datenschutzerklärung
+          </h3>
+          <button
+            type="button"
+            data-modal-close
+            class="cursor-pointer rounded-xl bg-white/10 p-2 text-slate-300 hover:bg-white/15 hover:text-white"
+            aria-label="Schließen"
+          >
+            <svg
+              class="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div class="space-y-4 text-sm leading-relaxed text-slate-200">
+          <div>
+            <h4 class="mb-1 text-base font-bold text-white">
+              1. Verantwortlicher
+            </h4>
+            <p>
+              Fabian Baier, Elgarstr. 3, 30989 Gehrden, E-Mail: siehe Impressum.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="mb-1 text-base font-bold text-white">
+              2. Hosting & Bereitstellung der Website
+            </h4>
+            <p>
+              Diese Website wird bei dem Hosting-Dienstleister Netlify (Netlify
+              Inc., 44 Montgomery St, Ste 300, San Francisco, CA 94104, USA)
+              gehostet. Beim Aufruf der Seiten erfasst Netlify technische
+              Zugriffsdaten in sogenannten Server-Logfiles (z.B. Browsertyp,
+              Betriebssystem, Datum und Uhrzeit des Abrufs). Rechtsgrundlage ist
+              Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer
+              sicheren und schnellen Bereitstellung unseres Onlineangebots).
+            </p>
+          </div>
+
+          <div>
+            <h4 class="mb-1 text-base font-bold text-white">
+              3. QR-Code Standorterfassung & Telemetrie
+            </h4>
+            <p>
+              Wenn du unsere Website über einen QR-Code aufrufst, wird die
+              Standort-Kennung (z.B. Station-ID) sowie der Gerätetyp (z.B. iOS,
+              Android) erfasst, um statistisch zu ermitteln, welche Pfade
+              besucht werden. Es werden dabei keine personenbezogenen Profile
+              und keine Tracking-Cookies angelegt. Die Erfassung erfolgt auf
+              Grundlage unseres berechtigten Interesses gemäß Art. 6 Abs. 1 lit.
+              f DSGVO.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="mb-1 text-base font-bold text-white">
+              4. Kontaktformular & freiwilliger Foto-Upload
+            </h4>
+            <p>
+              Wenn du uns über das Kontaktformular schreibst, verarbeiten wir
+              deinen Namen, deine optionale E-Mail-Adresse, deine Nachricht
+              sowie ein eventuell freiwillig angehängtes Foto ausschließlich zur
+              Bearbeitung deines Anliegens. Fotos werden nicht veröffentlicht,
+              sondern dienen ausschließlich der internen Betrachtung.
+              Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO bzw. Art. 6 Abs. 1
+              lit. a DSGVO.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="mb-1 text-base font-bold text-white">
+              5. Speicherdauer & Betroffenenrechte
+            </h4>
+            <p>
+              Wir löschen deine Angaben, sobald dein Anliegen abschließend
+              geklärt ist. Du hast jederzeit das Recht auf Auskunft,
+              Berichtigung, Löschung oder Einschränkung der Verarbeitung deiner
+              Daten. Wende dich hierfür einfach an die im Impressum angegebene
+              Kontaktadresse.
+            </p>
+          </div>
+
+          <div class="flex justify-end border-t border-white/10 pt-4">
+            <button
+              type="button"
+              data-modal-close
+              class="btn-secondary cursor-pointer rounded-xl px-5 py-2 text-sm font-semibold"
+              data-i18n="modal_close"
+            >
+              Schließen
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENTRY SCRIPT -->
+    <script type="module" src="/src/recipe.ts"></script>
+  </body>
+</html>

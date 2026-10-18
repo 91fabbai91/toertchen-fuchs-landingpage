@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /recipe.html
+Disallow: /recipe
+Allow: /

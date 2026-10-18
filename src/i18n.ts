@@ -40,15 +40,16 @@ export const translations = {
     recipe_title: 'Das Rezept: TörtchenFuchs Zimtschnecken',
     recipe_lead:
       'Der Duft von warmem Zimt, fluffigem Hefeteig und einer Prise Kardamom – so holst du dir den süßen Moment nach Hause.',
+    recipe_back_btn: 'Zurück zur Startseite',
     recipe_ingredients_title: 'Zutaten',
     recipe_dough_title: 'Hefeteig',
     recipe_dough_desc:
-      '250 ml Milch (lauwarm), 25 g frische Hefe, 75 g weiche Butter, 450 g Mehl, 50 g Zucker, 1 Prise Salz',
+      '250 ml Milch (lauwarm)\n25 g frische Hefe\n75 g weiche Butter\n450 g Mehl\n50 g Zucker\n1 Prise Salz',
     recipe_filling_title: 'Füllung',
     recipe_filling_desc:
-      '110 g weiche Butter, 50 g Zimtzucker (20 g Zimt / 30 g Zucker), 1–2 TL Backkakao, 1 Prise Kardamom',
+      '110 g weiche Butter\n50 g Zimtzucker (20 g Zimt / 30 g Zucker)\n1–2 TL Backkakao\n1 Prise Kardamom',
     recipe_topping_title: 'Deko',
-    recipe_topping_desc: '1 verquirltes Ei mit etwas Milch, Hagelzucker',
+    recipe_topping_desc: '1 verquirltes Ei mit etwas Milch\nHagelzucker',
 
     recipe_prep_title: 'Zubereitung',
     recipe_step1_title: '1. Vorbereiten',
@@ -79,8 +80,18 @@ export const translations = {
     recipe_folding_title: 'Die Falttechnik (Illustriert)',
     recipe_folding_lead:
       'Mit unserer Schritt-für-Schritt Falt- und Zwirbeltechnik gelingen dir herrlich saftige und kunstvoll geformte Zimtschnecken.',
+    recipe_footer_cta: 'Zimtschnecken nachgebacken? Schreib uns dein Feedback!',
+    recipe_footer_feedback_btn: 'Nachricht schreiben',
     img_folding_1: folding1De,
     img_folding_2: folding2De,
+
+    // Easter Egg Section (on index.html)
+    easter_egg_tag: '🦊 Psst... Geheimtipp!',
+    easter_egg_title:
+      'Lust auf etwas Süßes? Entdecke unser Zimtschnecken-Rezept!',
+    easter_egg_desc:
+      'Der Duft von warmem Zimt und Kardamom: Wir teilen unser liebstes Rezept mit dir – perfekt für die Pause unterwegs oder zu Hause.',
+    easter_egg_btn: 'Zum geheimen Rezept',
 
     section3_tag: 'Austausch & Kontakt',
     section3_title: 'Schreib uns!',
@@ -157,15 +168,16 @@ export const translations = {
     recipe_title: 'The Recipe: TörtchenFuchs Cinnamon Buns',
     recipe_lead:
       'The heavenly aroma of warm cinnamon, fluffy yeast dough, and a touch of cardamom — bring our signature sweet moment right to your home.',
+    recipe_back_btn: 'Back to Homepage',
     recipe_ingredients_title: 'Ingredients',
     recipe_dough_title: 'Yeast Dough',
     recipe_dough_desc:
-      '250 ml lukewarm milk, 25 g fresh yeast, 75 g softened butter, 450 g flour, 50 g sugar, 1 pinch of salt',
+      '250 ml lukewarm milk\n25 g fresh yeast\n75 g softened butter\n450 g flour\n50 g sugar\n1 pinch of salt',
     recipe_filling_title: 'Filling',
     recipe_filling_desc:
-      '110 g softened butter, 50 g cinnamon sugar (20 g cinnamon / 30 g sugar), 1–2 tsp baking cocoa, 1 pinch of cardamom',
+      '110 g softened butter\n50 g cinnamon sugar (20 g cinnamon / 30 g sugar)\n1–2 tsp baking cocoa\n1 pinch of cardamom',
     recipe_topping_title: 'Topping',
-    recipe_topping_desc: '1 whisked egg with a splash of milk, pearl sugar',
+    recipe_topping_desc: '1 whisked egg with a splash of milk\nPearl sugar',
 
     recipe_prep_title: 'Instructions',
     recipe_step1_title: '1. Prepare',
@@ -196,8 +208,18 @@ export const translations = {
     recipe_folding_title: 'The Folding Technique (Illustrated)',
     recipe_folding_lead:
       'Follow our illustrated folding and twisting guide for wonderfully juicy, bakery-style cinnamon knots.',
+    recipe_footer_cta: 'Baked our cinnamon buns? Send us your feedback!',
+    recipe_footer_feedback_btn: 'Write to us',
     img_folding_1: folding1En,
     img_folding_2: folding2En,
+
+    // Easter Egg Section (on index.html)
+    easter_egg_tag: '🦊 Psst... Secret Tip!',
+    easter_egg_title:
+      'Fancy something sweet? Discover our Cinnamon Bun Recipe!',
+    easter_egg_desc:
+      'The heavenly aroma of warm cinnamon and cardamom: We are sharing our favorite recipe with you – perfect for the trail or at home.',
+    easter_egg_btn: 'To the Secret Recipe',
 
     section3_tag: 'Connection & Contact',
     section3_title: 'Get in touch with us',

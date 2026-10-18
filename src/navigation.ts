@@ -6,9 +6,24 @@ export function initNavigation(): void {
   setupMobileDrawer();
   setupLegalModals();
   setupEmailObfuscation();
+  setupEasterEggUnlock();
 }
 
-function setupLanguageButtons(): void {
+export function setupEasterEggUnlock(): void {
+  document
+    .querySelectorAll<HTMLAnchorElement>('a[href*="recipe"]')
+    .forEach((link) => {
+      link.addEventListener('click', () => {
+        try {
+          sessionStorage.setItem('tf_easter_egg_unlocked', '1');
+        } catch {
+          // Ignore storage exceptions
+        }
+      });
+    });
+}
+
+export function setupLanguageButtons(): void {
   document.querySelectorAll<HTMLElement>('[data-lang-btn]').forEach((btn) => {
     btn.addEventListener('click', () => {
       const lang = btn.getAttribute('data-lang-btn');
@@ -89,7 +104,7 @@ function setupMobileDrawer(): void {
   });
 }
 
-function setupLegalModals(): void {
+export function setupLegalModals(): void {
   // Impressum modal
   const impressumBtn = document.querySelectorAll<HTMLElement>(
     '[data-modal-target="impressum-modal"]'
@@ -149,7 +164,7 @@ function setupLegalModals(): void {
   });
 }
 
-function setupEmailObfuscation(): void {
+export function setupEmailObfuscation(): void {
   // Fabian Baier, fabian.baier@gmx.de
   // We obfuscate the mailto link and display so web scrapers don't harvest it.
   const user = 'fabian.baier';
