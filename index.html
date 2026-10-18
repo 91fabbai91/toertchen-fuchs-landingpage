@@ -30,12 +30,29 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/src/assets/Fuchs.png" />
 
-    <!-- Google Fonts Preconnect & Stylesheet -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload critical self-hosted fonts (eliminates external roundtrips & layout shifts) -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/fonts/plus-jakarta-sans-v12-latin-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/outfit-v15-latin-700.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <!-- Preload Largest Contentful Paint (LCP) Hero background in modern AVIF format -->
+    <link
+      rel="preload"
+      as="image"
+      href="/src/assets/IMG_4381.avif"
+      type="image/avif"
+      fetchpriority="high"
     />
   </head>
   <body
@@ -476,13 +493,19 @@
       <!-- SECTION 1 & HERO: Nature / Misty Lake / Fox Trail Background       -->
       <!-- ================================================================= -->
       <div class="relative bg-slate-900">
-        <!-- Background IMG_4381.JPG (Fox on hill overlooking misty lake) positioned to show the fox -->
-        <div
-          class="absolute inset-0 bg-cover bg-[center_left] bg-no-repeat sm:bg-center"
-          style="background-image: url('/src/assets/IMG_4381.JPG')"
-          role="img"
-          aria-label="Morgendliche Landschaft mit See und Fuchs auf einem Pfad"
-        ></div>
+        <!-- Background IMG_4381 (Fox on hill overlooking misty lake) in modern AVIF/WebP formats -->
+        <picture class="absolute inset-0 block overflow-hidden">
+          <source srcset="/src/assets/IMG_4381.avif" type="image/avif" />
+          <source srcset="/src/assets/IMG_4381.webp" type="image/webp" />
+          <img
+            src="/src/assets/IMG_4381.JPG"
+            alt="Morgendliche Landschaft mit See und Fuchs auf einem Pfad"
+            fetchpriority="high"
+            loading="eager"
+            decoding="async"
+            class="h-full w-full object-cover object-[center_left] sm:object-center"
+          />
+        </picture>
 
         <!-- Light natural ambient scrim - lets the fox & misty lake be clearly seen -->
         <div class="hero-scrim absolute inset-0"></div>
@@ -633,11 +656,25 @@
                     <div
                       class="relative flex flex-col items-center rounded-3xl border border-white/20 bg-slate-900/60 p-6 shadow-2xl backdrop-blur-md sm:p-8"
                     >
-                      <img
-                        src="/src/assets/Fuchs.png"
-                        alt="TörtchenFuchs Maskottchen mit Törtchen"
-                        class="h-auto w-56 drop-shadow-2xl transition-transform duration-500 group-hover:scale-105 sm:w-64"
-                      />
+                      <picture>
+                        <source
+                          srcset="/src/assets/Fuchs.avif"
+                          type="image/avif"
+                        />
+                        <source
+                          srcset="/src/assets/Fuchs.webp"
+                          type="image/webp"
+                        />
+                        <img
+                          src="/src/assets/Fuchs.png"
+                          alt="TörtchenFuchs Maskottchen mit Törtchen"
+                          width="792"
+                          height="870"
+                          loading="lazy"
+                          decoding="async"
+                          class="h-auto w-56 drop-shadow-2xl transition-transform duration-500 group-hover:scale-105 sm:w-64"
+                        />
+                      </picture>
                       <div class="mt-4 text-center">
                         <span
                           class="block text-sm font-semibold text-orange-300"
@@ -662,14 +699,18 @@
       <!-- SECTION 2 & 3: Warm Cinnamon Pastries Background (IMG_4380.JPG)   -->
       <!-- ================================================================= -->
       <div class="relative overflow-hidden bg-slate-900">
-        <!-- Full Color, Bright Background Image (IMG_4380.JPG - Cinnamon Rolls) -->
-        <!-- NO opacity-40, NO mix-blend-luminosity -> Golden buns fully visible! -->
-        <div
-          class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90"
-          style="background-image: url('/src/assets/IMG_4380.JPG')"
-          role="img"
-          aria-label="Frisch gebackene Zimtschnecken und handgemachtes Gebäck"
-        ></div>
+        <!-- Background IMG_4380 (Cinnamon Rolls) in modern AVIF/WebP formats with native lazy loading -->
+        <picture class="absolute inset-0 block overflow-hidden">
+          <source srcset="/src/assets/IMG_4380.avif" type="image/avif" />
+          <source srcset="/src/assets/IMG_4380.webp" type="image/webp" />
+          <img
+            src="/src/assets/IMG_4380.JPG"
+            alt="Frisch gebackene Zimtschnecken und handgemachtes Gebäck"
+            loading="lazy"
+            decoding="async"
+            class="h-full w-full object-cover object-center opacity-90"
+          />
+        </picture>
 
         <!-- Soft warm ambient scrim -->
         <div class="pastry-scrim absolute inset-0"></div>
