@@ -3,26 +3,26 @@
  * Identifies iOS, Android, Desktop, or Other based on User-Agent.
  */
 
-export type DeviceType = 'iOS' | 'Android' | 'Desktop' | 'Other'
+export type DeviceType = 'iOS' | 'Android' | 'Desktop' | 'Other';
 
 export function detectDevice(): DeviceType {
-  const ua = (typeof navigator !== 'undefined' && navigator.userAgent) || ''
+  const ua = (typeof navigator !== 'undefined' && navigator.userAgent) || '';
 
   if (!ua) {
-    return 'Other'
+    return 'Other';
   }
 
   if (/iphone|ipad|ipod/i.test(ua)) {
-    return 'iOS'
+    return 'iOS';
   }
 
   if (/android/i.test(ua)) {
-    return 'Android'
+    return 'Android';
   }
 
   if (/macintosh|mac os x|windows nt|linux/i.test(ua)) {
-    return 'Desktop'
+    return 'Desktop';
   }
 
-  return 'Other'
+  return 'Other';
 }

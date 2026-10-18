@@ -4,7 +4,7 @@ export const translations = {
   de: {
     nav_who: 'Wer sind wir?',
     nav_why: 'Warum tun wir das?',
-    nav_contact: 'Meld Dich bei uns',
+    nav_contact: 'Schreib uns!',
 
     brand_title: 'TörtchenFuchs',
     brand_tagline: 'Schlaue Pfade, süße Momente',
@@ -14,7 +14,7 @@ export const translations = {
     hero_subtitle:
       'Wo Neugierde auf Handwerkskunst trifft. Folge den Spuren durch die Natur und entdecke handgemachte Köstlichkeiten, die den Tag verzaubern.',
     hero_cta_primary: 'Pfade & Momente entdecken',
-    hero_cta_contact: 'Meld Dich bei uns',
+    hero_cta_contact: 'Schreib uns!',
 
     section1_tag: 'Unsere Geschichte',
     section1_title: 'Wer sind wir?',
@@ -36,18 +36,9 @@ export const translations = {
       'Wir glauben daran, dass die besten Erlebnisse entstehen, wenn Bewegung, Entdeckerfreude und Genuss zusammenkommen. Unsere QR-Pfade laden dazu ein, die Augen offen zu halten, neue Lieblingsorte zu entdecken und den Moment mit allen Sinnen zu genießen.',
     section2_p2:
       'Jeder Fund an unseren Stationen ist eine kleine Einladung zum Innehalten, Durchatmen und Genießen. Wir möchten Menschen zusammenbringen – durch die Freude am Draußensein und die Begeisterung für ehrliche, handgemachte Köstlichkeiten.',
-    card1_title: 'Natur & Entdeckung',
-    card1_desc:
-      'Dem Alltag entfliehen, geheime Pfade erkunden und die Natur auf neuen Wegen erleben.',
-    card2_title: 'Süße Belohnung',
-    card2_desc:
-      'Nach jedem schlauen Pfad wartet ein unvergesslicher Moment voll echtem Geschmack.',
-    card3_title: 'Gemeinschaft',
-    card3_desc:
-      'Erlebnisse teilen, Stationen aufspüren und miteinander ins Gespräch kommen.',
 
     section3_tag: 'Austausch & Kontakt',
-    section3_title: 'Meld Dich bei uns',
+    section3_title: 'Schreib uns!',
     section3_subtitle:
       'Hast du einen unserer Pfade entdeckt, möchtest Feedback teilen oder hast eine Frage? Schreib uns einfach – wir freuen uns auf deine Nachricht!',
     form_name_label: 'Dein Name *',
@@ -115,15 +106,6 @@ export const translations = {
       'We believe the best memories are made when exploration, fresh air, and artisanal indulgence meet. Our QR trails invite you to keep your eyes open, discover new favorite spots, and savor the moment with all your senses.',
     section2_p2:
       'Every discovery along our stations is an invitation to pause, take a deep breath, and enjoy. We aim to connect people — through the joy of being outside and the delight in honest, handcrafted treats.',
-    card1_title: 'Nature & Exploration',
-    card1_desc:
-      'Escape the daily grind, explore secret trails, and experience nature from fresh perspectives.',
-    card2_title: 'Sweet Reward',
-    card2_desc:
-      'After every clever path, an unforgettable moment of pure, authentic taste awaits.',
-    card3_title: 'Community',
-    card3_desc:
-      'Share adventures, spot hidden stations, and connect with fellow explorers.',
 
     section3_tag: 'Connection & Contact',
     section3_title: 'Get in touch with us',

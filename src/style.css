@@ -11,8 +11,8 @@
 html {
   scroll-behavior: smooth;
   font-family: var(--font-body);
-  background-color: #090d16;
-  color: #f1f5f9;
+  background-color: #0b1120;
+  color: #f8fafc;
   color-scheme: dark;
 }
 
@@ -25,47 +25,47 @@ h6 {
   font-family: var(--font-heading);
 }
 
-/* Glassmorphism Panels */
+/* Translucent Glassmorphism Panels (Light & Airy so background photos shine through) */
 .glass-panel {
-  background: rgba(15, 23, 42, 0.72);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  background: rgba(13, 20, 36, 0.62);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.35);
 }
 
 .glass-panel-subtle {
-  background: rgba(15, 23, 42, 0.55);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(13, 20, 36, 0.48);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .glass-dock {
-  background: rgba(10, 15, 28, 0.85);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  background: rgba(11, 17, 30, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
 }
 
 .glass-input {
-  background: rgba(4, 7, 15, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(4, 8, 18, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   transition: all 0.2s ease;
 }
 
 .glass-input:focus {
   border-color: #f97316;
-  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.25);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.3);
   outline: none;
 }
 
 /* Active Navigation State */
 .active-nav-link {
-  background-color: rgba(249, 115, 22, 0.18) !important;
+  background-color: rgba(249, 115, 22, 0.22) !important;
   color: #fb923c !important;
-  border-color: rgba(249, 115, 22, 0.5) !important;
+  border-color: rgba(249, 115, 22, 0.6) !important;
 }
 
 .active-nav-link .nav-dot {
@@ -78,13 +78,13 @@ h6 {
 .btn-primary {
   background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
   color: #ffffff;
-  box-shadow: 0 10px 25px -5px rgba(234, 88, 12, 0.35);
+  box-shadow: 0 10px 25px -5px rgba(234, 88, 12, 0.4);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 15px 30px -5px rgba(234, 88, 12, 0.5);
+  box-shadow: 0 15px 30px -5px rgba(234, 88, 12, 0.55);
 }
 
 .btn-primary:active {
@@ -92,37 +92,37 @@ h6 {
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(12px);
   color: #ffffff;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
   transform: translateY(-2px);
 }
 
-/* Subtle texture & scrim overlays */
+/* Natural, bright ambient overlays (Never black out the photography) */
 .hero-scrim {
   background: linear-gradient(
     180deg,
-    rgba(5, 8, 16, 0.45) 0%,
-    rgba(5, 8, 16, 0.7) 45%,
-    rgba(9, 13, 22, 0.95) 85%,
-    #090d16 100%
+    rgba(6, 10, 20, 0.22) 0%,
+    rgba(6, 10, 20, 0.32) 40%,
+    rgba(8, 14, 26, 0.55) 75%,
+    rgba(11, 17, 32, 0.8) 100%
   );
 }
 
 .pastry-scrim {
   background: linear-gradient(
     180deg,
-    #090d16 0%,
-    rgba(18, 12, 8, 0.88) 25%,
-    rgba(25, 14, 7, 0.88) 75%,
-    #090d16 100%
+    rgba(11, 17, 32, 0.75) 0%,
+    rgba(25, 15, 8, 0.3) 25%,
+    rgba(25, 15, 8, 0.3) 75%,
+    rgba(11, 17, 32, 0.82) 100%
   );
 }
 
@@ -131,7 +131,7 @@ h6 {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #090d16;
+  background: #0b1120;
 }
 ::-webkit-scrollbar-thumb {
   background: #1e293b;

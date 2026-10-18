@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="index, follow" />
+
+    <!-- Multi-format Favicons (Fox mascot guaranteed across all browsers) -->
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/src/assets/Fuchs.png" />
 
     <title>TörtchenFuchs: Schlaue Pfade, süße Momente</title>
     <meta
@@ -166,7 +171,6 @@
           <span
             class="nav-dot absolute -left-1 h-1.5 w-1.5 rounded-full bg-transparent transition-all"
           ></span>
-          <!-- Tooltip on hover -->
           <span
             class="pointer-events-none absolute left-14 -translate-x-2 rounded-lg border border-white/10 bg-slate-900/95 px-3 py-1.5 text-xs font-semibold whitespace-nowrap text-slate-100 opacity-0 shadow-xl transition-all group-hover:translate-x-0 group-hover:opacity-100"
             data-i18n="nav_who"
@@ -198,7 +202,6 @@
           <span
             class="nav-dot absolute -left-1 h-1.5 w-1.5 rounded-full bg-transparent transition-all"
           ></span>
-          <!-- Tooltip on hover -->
           <span
             class="pointer-events-none absolute left-14 -translate-x-2 rounded-lg border border-white/10 bg-slate-900/95 px-3 py-1.5 text-xs font-semibold whitespace-nowrap text-slate-100 opacity-0 shadow-xl transition-all group-hover:translate-x-0 group-hover:opacity-100"
             data-i18n="nav_why"
@@ -207,12 +210,12 @@
           </span>
         </a>
 
-        <!-- Meld Dich bei uns -->
+        <!-- Schreib uns! (Contact) -->
         <a
           href="#contact"
           data-nav-link
           class="group relative flex h-10 w-10 items-center justify-center rounded-xl border border-transparent text-slate-300 transition-all hover:bg-white/10 hover:text-orange-400"
-          title="Meld Dich bei uns"
+          title="Schreib uns!"
         >
           <svg
             class="h-5 w-5 transition-transform group-hover:scale-110"
@@ -230,12 +233,11 @@
           <span
             class="nav-dot absolute -left-1 h-1.5 w-1.5 rounded-full bg-transparent transition-all"
           ></span>
-          <!-- Tooltip on hover -->
           <span
             class="pointer-events-none absolute left-14 -translate-x-2 rounded-lg border border-white/10 bg-slate-900/95 px-3 py-1.5 text-xs font-semibold whitespace-nowrap text-slate-100 opacity-0 shadow-xl transition-all group-hover:translate-x-0 group-hover:opacity-100"
             data-i18n="nav_contact"
           >
-            Meld Dich bei uns
+            Schreib uns!
           </span>
         </a>
       </nav>
@@ -403,7 +405,7 @@
             class="flex items-center gap-3 rounded-xl px-4 py-3 font-medium text-slate-200 transition-all hover:bg-orange-500/15 hover:text-orange-400"
             data-i18n="nav_contact"
           >
-            Meld Dich bei uns
+            Schreib uns!
           </a>
         </nav>
       </div>
@@ -436,752 +438,553 @@
     <!-- MAIN CONTENT CONTAINER -->
     <main class="md:pl-20 lg:pl-28">
       <!-- ================================================================= -->
-      <!-- SECTION: HERO (Nature / Misty Lake / Fox Trail Background)       -->
+      <!-- SECTION 1 & HERO: Nature / Misty Lake / Fox Trail Background       -->
       <!-- ================================================================= -->
-      <section
-        id="hero"
-        class="relative flex min-h-[92svh] items-center justify-center overflow-hidden px-4 py-20 sm:px-6 lg:px-12"
-      >
-        <!-- Background Image IMG_4381.JPG (Fox on hill overlooking misty lake) -->
+      <div class="relative bg-slate-900">
+        <!-- Background IMG_4381.JPG (Fox on hill overlooking misty lake) positioned to show the fox -->
         <div
-          class="absolute inset-0 scale-105 bg-cover bg-center bg-no-repeat transition-transform duration-1000"
+          class="absolute inset-0 bg-cover bg-[center_left] bg-no-repeat sm:bg-center"
           style="background-image: url('/src/assets/IMG_4381.JPG')"
           role="img"
           aria-label="Morgendliche Landschaft mit See und Fuchs auf einem Pfad"
         ></div>
 
-        <!-- Scrim Gradient Overlay for Superior Text Legibility -->
+        <!-- Light natural ambient scrim - lets the fox & misty lake be clearly seen -->
         <div class="hero-scrim absolute inset-0"></div>
 
-        <!-- Hero Content Card -->
-        <div
-          class="relative z-10 mx-auto flex max-w-4xl flex-col items-center text-center"
+        <!-- HERO COMPONENT -->
+        <section
+          id="hero"
+          class="relative flex min-h-[85svh] items-center justify-center overflow-hidden px-4 py-20 sm:px-6 lg:px-12"
         >
-          <!-- Cute Mascot Badge -->
           <div
-            class="glass-panel-subtle animate-fade-in mb-8 inline-flex items-center gap-3 rounded-full border border-white/15 px-4 py-2"
+            class="relative z-10 mx-auto flex max-w-4xl flex-col items-center text-center"
           >
-            <img
-              src="/src/assets/Fuchs_farbig.svg"
-              alt="Fuchs Icon"
-              class="h-7 w-7 drop-shadow"
-            />
-            <span
-              class="text-xs font-semibold tracking-wide text-orange-300 uppercase sm:text-sm"
-              data-i18n="hero_badge"
+            <!-- Cute Mascot Badge -->
+            <div
+              class="glass-panel-subtle mb-6 inline-flex items-center gap-3 rounded-full border border-white/20 px-4 py-2 shadow-lg"
             >
-              Schlaue Pfade & Süße Momente
-            </span>
-          </div>
-
-          <!-- Main Brand Title -->
-          <h1
-            class="mb-4 text-5xl font-extrabold tracking-tight text-white drop-shadow-md sm:text-7xl lg:text-8xl"
-          >
-            TörtchenFuchs
-          </h1>
-
-          <!-- Tagline -->
-          <p
-            class="mb-6 text-xl font-semibold tracking-wide text-orange-400 drop-shadow sm:text-3xl"
-            data-i18n="brand_tagline"
-          >
-            Schlaue Pfade, süße Momente
-          </p>
-
-          <!-- Rich Subtitle -->
-          <p
-            class="mb-10 max-w-2xl text-base leading-relaxed font-normal text-slate-200 drop-shadow-sm sm:text-xl"
-            data-i18n="hero_subtitle"
-          >
-            Wo Neugierde auf Handwerkskunst trifft. Folge den Spuren durch die
-            Natur und entdecke handgemachte Köstlichkeiten, die den Tag
-            verzaubern.
-          </p>
-
-          <!-- CTA Action Buttons -->
-          <div class="flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
-            <a
-              href="#who-we-are"
-              class="btn-primary group flex items-center justify-center gap-2 rounded-full px-8 py-4 text-base font-bold tracking-wide"
-            >
-              <span data-i18n="hero_cta_primary"
-                >Pfade & Momente entdecken</span
-              >
-              <svg
-                class="h-5 w-5 transition-transform group-hover:translate-y-0.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                />
-              </svg>
-            </a>
-            <a
-              href="#contact"
-              class="btn-secondary flex items-center justify-center gap-2 rounded-full px-8 py-4 text-base font-semibold"
-              data-i18n="hero_cta_contact"
-            >
-              Meld Dich bei uns
-            </a>
-          </div>
-        </div>
-
-        <!-- Down scroll indicator -->
-        <div
-          class="absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 animate-bounce text-slate-400 sm:block"
-        >
-          <a href="#who-we-are" aria-label="Nach unten scrollen">
-            <svg
-              class="h-6 w-6 opacity-75 transition-opacity hover:opacity-100"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"
+              <img
+                src="/src/assets/Fuchs_farbig.svg"
+                alt="Fuchs Icon"
+                class="h-7 w-7 drop-shadow"
               />
-            </svg>
-          </a>
-        </div>
-      </section>
-
-      <!-- ================================================================= -->
-      <!-- SECTION 1: "Wer sind wir?" / "Who we are?"                        -->
-      <!-- ================================================================= -->
-      <section
-        id="who-we-are"
-        class="relative scroll-mt-16 px-4 py-24 sm:scroll-mt-24 sm:px-6 lg:px-12"
-      >
-        <div class="mx-auto max-w-5xl">
-          <!-- Outer Frosted Glass Card -->
-          <div
-            class="glass-panel relative overflow-hidden rounded-3xl border border-white/10 p-6 sm:p-12 lg:p-16"
-          >
-            <!-- Subtle warm background glow -->
-            <div
-              class="pointer-events-none absolute -top-32 -right-32 h-80 w-80 rounded-full bg-orange-600/15 blur-3xl"
-            ></div>
-
-            <div
-              class="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-14"
-            >
-              <!-- Left Text Content (7 cols) -->
-              <div class="space-y-6 lg:col-span-7">
-                <!-- Tag Badge -->
-                <div
-                  class="inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/15 px-3.5 py-1.5 text-xs font-semibold tracking-wider text-orange-400 uppercase"
-                >
-                  <span class="h-2 w-2 rounded-full bg-orange-400"></span>
-                  <span data-i18n="section1_tag">Unsere Geschichte</span>
-                </div>
-
-                <!-- Section Title -->
-                <h2
-                  class="text-3xl font-extrabold tracking-tight text-white sm:text-5xl"
-                  data-i18n="section1_title"
-                >
-                  Wer sind wir?
-                </h2>
-
-                <!-- Lead Paragraph -->
-                <p
-                  class="text-lg leading-relaxed font-medium text-orange-200/90 sm:text-xl"
-                  data-i18n="section1_lead"
-                >
-                  Handwerkskunst, Neugier und die Liebe zum süßen Detail.
-                </p>
-
-                <!-- Body Paragraph 1 -->
-                <p
-                  class="text-base leading-relaxed text-slate-300"
-                  data-i18n="section1_p1"
-                >
-                  Hinter dem TörtchenFuchs steckt die Leidenschaft für echte
-                  Handwerkskunst, verborgene Wege und die kleinen Freuden des
-                  Lebens. Wie ein aufmerksamer Fuchs streifen wir durch die
-                  Region – immer auf der Suche nach den besten Zutaten, den
-                  schönsten Aussichten und Rezepten, die ein Lächeln ins Gesicht
-                  zaubern.
-                </p>
-
-                <!-- Body Paragraph 2 -->
-                <p
-                  class="text-base leading-relaxed text-slate-300"
-                  data-i18n="section1_p2"
-                >
-                  Unsere Kreationen verbinden traditionelle Backkunst mit
-                  modernen Aromen und einer Prise Abenteuerlust. Ob feine
-                  Törtchen, saftige Zimtschnecken oder liebevoll gestaltete
-                  Überraschungen für besondere Momente: Bei uns wird jedes Stück
-                  mit Hingabe von Hand gefertigt.
-                </p>
-
-                <!-- Feature Mini-Cards -->
-                <div class="grid grid-cols-1 gap-4 pt-4 sm:grid-cols-2">
-                  <div
-                    class="rounded-2xl border border-white/10 bg-white/5 p-4 transition-all hover:border-orange-500/30"
-                  >
-                    <div
-                      class="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500/20 text-orange-400"
-                    >
-                      <svg
-                        class="h-5 w-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                        />
-                      </svg>
-                    </div>
-                    <h3
-                      class="mb-1 text-base font-bold text-white"
-                      data-i18n="feature1_title"
-                    >
-                      100% Handgemacht
-                    </h3>
-                    <p
-                      class="text-xs leading-normal text-slate-400"
-                      data-i18n="feature1_desc"
-                    >
-                      Mit besten Zutaten und echter Liebe zum Detail gebacken.
-                    </p>
-                  </div>
-
-                  <div
-                    class="rounded-2xl border border-white/10 bg-white/5 p-4 transition-all hover:border-orange-500/30"
-                  >
-                    <div
-                      class="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500/20 text-orange-400"
-                    >
-                      <svg
-                        class="h-5 w-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
-                        />
-                      </svg>
-                    </div>
-                    <h3
-                      class="mb-1 text-base font-bold text-white"
-                      data-i18n="feature2_title"
-                    >
-                      Schlaue Pfade
-                    </h3>
-                    <p
-                      class="text-xs leading-normal text-slate-400"
-                      data-i18n="feature2_desc"
-                    >
-                      Kreative Entdecker-Spuren und Genuss-Orte in der Natur.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Right Visual: Fox Mascot Artwork (5 cols) -->
-              <div
-                class="flex flex-col items-center justify-center lg:col-span-5"
+              <span
+                class="text-xs font-semibold tracking-wide text-orange-300 uppercase sm:text-sm"
+                data-i18n="hero_badge"
               >
-                <div class="group relative">
-                  <!-- Ambient mascot glow -->
-                  <div
-                    class="absolute inset-0 rounded-full bg-gradient-to-tr from-orange-600/30 to-amber-500/30 blur-2xl transition-all duration-500 group-hover:blur-3xl"
-                  ></div>
+                Schlaue Pfade & Süße Momente
+              </span>
+            </div>
 
+            <!-- Main Brand Title -->
+            <h1
+              class="mb-3 text-5xl font-extrabold tracking-tight text-white drop-shadow-lg sm:text-7xl lg:text-8xl"
+            >
+              TörtchenFuchs
+            </h1>
+
+            <!-- Tagline -->
+            <p
+              class="mb-6 text-xl font-semibold tracking-wide text-orange-400 drop-shadow sm:text-3xl"
+              data-i18n="brand_tagline"
+            >
+              Schlaue Pfade, süße Momente
+            </p>
+
+            <!-- Rich Subtitle -->
+            <p
+              class="mb-10 max-w-2xl text-base leading-relaxed font-normal text-slate-100 drop-shadow sm:text-xl"
+              data-i18n="hero_subtitle"
+            >
+              Wo Neugierde auf Handwerkskunst trifft. Folge den Spuren durch die
+              Natur und entdecke handgemachte Köstlichkeiten, die den Tag
+              verzaubern.
+            </p>
+
+            <!-- CTA Action Buttons -->
+            <div class="flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
+              <a
+                href="#who-we-are"
+                class="btn-primary group flex cursor-pointer items-center justify-center gap-2 rounded-full px-8 py-4 text-base font-bold tracking-wide"
+              >
+                <span data-i18n="hero_cta_primary"
+                  >Pfade & Momente entdecken</span
+                >
+                <svg
+                  class="h-5 w-5 transition-transform group-hover:translate-y-0.5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#contact"
+                class="btn-secondary flex cursor-pointer items-center justify-center gap-2 rounded-full px-8 py-4 text-base font-semibold"
+                data-i18n="hero_cta_contact"
+              >
+                Schreib uns!
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION: "Wer sind wir?" / "Who we are?" -->
+        <section
+          id="who-we-are"
+          class="relative scroll-mt-16 px-4 pt-4 pb-24 sm:scroll-mt-24 sm:px-6 lg:px-12"
+        >
+          <div class="mx-auto max-w-5xl">
+            <!-- Frosted Glass Card (Translucent so the nature background shows through) -->
+            <div
+              class="glass-panel relative overflow-hidden rounded-3xl border border-white/20 p-6 sm:p-12 lg:p-14"
+            >
+              <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
+                <!-- Left Text Content (7 cols) -->
+                <div class="space-y-6 lg:col-span-7">
+                  <!-- Tag Badge -->
                   <div
-                    class="relative flex flex-col items-center rounded-3xl border border-white/15 bg-slate-900/60 p-6 shadow-2xl backdrop-blur-md sm:p-8"
+                    class="inline-flex items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/20 px-3.5 py-1.5 text-xs font-semibold tracking-wider text-orange-300 uppercase"
                   >
-                    <img
-                      src="/src/assets/Fuchs.png"
-                      alt="TörtchenFuchs Maskottchen mit Törtchen"
-                      class="h-auto w-56 drop-shadow-2xl transition-transform duration-500 group-hover:scale-105 sm:w-64"
-                    />
-                    <div class="mt-4 text-center">
-                      <span class="block text-sm font-semibold text-orange-300"
-                        >TörtchenFuchs</span
+                    <span class="h-2 w-2 rounded-full bg-orange-400"></span>
+                    <span data-i18n="section1_tag">Unsere Geschichte</span>
+                  </div>
+
+                  <!-- Section Title -->
+                  <h2
+                    class="text-3xl font-extrabold tracking-tight text-white sm:text-5xl"
+                    data-i18n="section1_title"
+                  >
+                    Wer sind wir?
+                  </h2>
+
+                  <!-- Lead Paragraph -->
+                  <p
+                    class="text-lg leading-relaxed font-medium text-orange-200 sm:text-xl"
+                    data-i18n="section1_lead"
+                  >
+                    Handwerkskunst, Neugier und die Liebe zum süßen Detail.
+                  </p>
+
+                  <!-- Body Paragraph 1 -->
+                  <p
+                    class="text-base leading-relaxed text-slate-200"
+                    data-i18n="section1_p1"
+                  >
+                    Hinter dem TörtchenFuchs steckt die Leidenschaft für echte
+                    Handwerkskunst, verborgene Wege und die kleinen Freuden des
+                    Lebens. Wie ein aufmerksamer Fuchs streifen wir durch die
+                    Region – immer auf der Suche nach den besten Zutaten, den
+                    schönsten Aussichten und Rezepten, die ein Lächeln ins
+                    Gesicht zaubern.
+                  </p>
+
+                  <!-- Body Paragraph 2 -->
+                  <p
+                    class="text-base leading-relaxed text-slate-200"
+                    data-i18n="section1_p2"
+                  >
+                    Unsere Kreationen verbinden traditionelle Backkunst mit
+                    modernen Aromen und einer Prise Abenteuerlust. Ob feine
+                    Törtchen, saftige Zimtschnecken oder liebevoll gestaltete
+                    Überraschungen für besondere Momente: Bei uns wird jedes
+                    Stück mit Hingabe von Hand gefertigt.
+                  </p>
+
+                  <!-- Feature Mini-Cards -->
+                  <div class="grid grid-cols-1 gap-4 pt-2 sm:grid-cols-2">
+                    <div
+                      class="rounded-2xl border border-white/15 bg-white/10 p-4 transition-all hover:border-orange-500/40"
+                    >
+                      <div
+                        class="mb-2.5 flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500/20 text-orange-400"
                       >
-                      <span
-                        class="text-xs text-slate-400"
-                        data-i18n="brand_tagline"
-                        >Schlaue Pfade, süße Momente</span
+                        <svg
+                          class="h-5 w-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                          />
+                        </svg>
+                      </div>
+                      <h3
+                        class="mb-1 text-base font-bold text-white"
+                        data-i18n="feature1_title"
                       >
+                        100% Handgemacht
+                      </h3>
+                      <p
+                        class="text-xs leading-normal text-slate-300"
+                        data-i18n="feature1_desc"
+                      >
+                        Mit besten Zutaten und echter Liebe zum Detail gebacken.
+                      </p>
+                    </div>
+
+                    <div
+                      class="rounded-2xl border border-white/15 bg-white/10 p-4 transition-all hover:border-orange-500/40"
+                    >
+                      <div
+                        class="mb-2.5 flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500/20 text-orange-400"
+                      >
+                        <svg
+                          class="h-5 w-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+                          />
+                        </svg>
+                      </div>
+                      <h3
+                        class="mb-1 text-base font-bold text-white"
+                        data-i18n="feature2_title"
+                      >
+                        Schlaue Pfade
+                      </h3>
+                      <p
+                        class="text-xs leading-normal text-slate-300"
+                        data-i18n="feature2_desc"
+                      >
+                        Kreative Entdecker-Spuren und Genuss-Orte in der Natur.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right Visual: Fox Mascot Artwork -->
+                <div
+                  class="flex flex-col items-center justify-center lg:col-span-5"
+                >
+                  <div class="group relative">
+                    <div
+                      class="absolute inset-0 rounded-full bg-gradient-to-tr from-orange-600/35 to-amber-500/35 blur-2xl transition-all duration-500 group-hover:blur-3xl"
+                    ></div>
+
+                    <div
+                      class="relative flex flex-col items-center rounded-3xl border border-white/20 bg-slate-900/60 p-6 shadow-2xl backdrop-blur-md sm:p-8"
+                    >
+                      <img
+                        src="/src/assets/Fuchs.png"
+                        alt="TörtchenFuchs Maskottchen mit Törtchen"
+                        class="h-auto w-56 drop-shadow-2xl transition-transform duration-500 group-hover:scale-105 sm:w-64"
+                      />
+                      <div class="mt-4 text-center">
+                        <span
+                          class="block text-sm font-semibold text-orange-300"
+                          >TörtchenFuchs</span
+                        >
+                        <span
+                          class="text-xs text-slate-300"
+                          data-i18n="brand_tagline"
+                          >Schlaue Pfade, süße Momente</span
+                        >
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       <!-- ================================================================= -->
-      <!-- SECTION 2: "Warum tun wir das?" (Fresh Pastries Background)       -->
+      <!-- SECTION 2 & 3: Warm Cinnamon Pastries Background (IMG_4380.JPG)   -->
       <!-- ================================================================= -->
-      <section
-        id="why-we-do-it"
-        class="relative scroll-mt-16 overflow-hidden px-4 py-28 sm:scroll-mt-24 sm:px-6 lg:px-12"
-      >
-        <!-- Background IMG_4380.JPG (Artisan Cinnamon Buns & Pastries) -->
+      <div class="relative overflow-hidden bg-slate-900">
+        <!-- Full Color, Bright Background Image (IMG_4380.JPG - Cinnamon Rolls) -->
+        <!-- NO opacity-40, NO mix-blend-luminosity -> Golden buns fully visible! -->
         <div
-          class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 mix-blend-luminosity"
+          class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90"
           style="background-image: url('/src/assets/IMG_4380.JPG')"
           role="img"
           aria-label="Frisch gebackene Zimtschnecken und handgemachtes Gebäck"
         ></div>
 
-        <!-- Pastry Scrim for high contrast -->
+        <!-- Soft warm ambient scrim -->
         <div class="pastry-scrim absolute inset-0"></div>
 
-        <div class="relative z-10 mx-auto max-w-5xl space-y-12">
-          <!-- Section Header Card -->
-          <div
-            class="glass-panel mx-auto max-w-3xl rounded-3xl p-8 text-center sm:p-12"
-          >
-            <!-- Tag Badge -->
+        <!-- SECTION: "Warum tun wir das?" (Clean, centered - 3 pillars removed) -->
+        <section
+          id="why-we-do-it"
+          class="relative z-10 scroll-mt-16 px-4 pt-24 pb-16 sm:scroll-mt-24 sm:px-6 lg:px-12"
+        >
+          <div class="mx-auto max-w-4xl">
+            <!-- Focused Philosophy Card in Translucent Frosted Glass -->
             <div
-              class="mb-4 inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/15 px-3.5 py-1.5 text-xs font-semibold tracking-wider text-orange-400 uppercase"
+              class="glass-panel rounded-3xl border border-white/20 p-8 text-center shadow-2xl sm:p-12 lg:p-14"
             >
-              <span class="h-2 w-2 rounded-full bg-orange-400"></span>
-              <span data-i18n="section2_tag">Unsere Philosophie</span>
-            </div>
-
-            <!-- Title -->
-            <h2
-              class="mb-4 text-3xl font-extrabold tracking-tight text-white sm:text-5xl"
-              data-i18n="section2_title"
-            >
-              Warum tun wir das?
-            </h2>
-
-            <!-- Lead Statement -->
-            <p
-              class="mb-6 text-lg leading-relaxed font-medium text-orange-300 sm:text-xl"
-              data-i18n="section2_lead"
-            >
-              Weil das Leben draußen schöner ist – und mit einer süßen Belohnung
-              noch viel besser.
-            </p>
-
-            <div
-              class="mx-auto max-w-2xl space-y-4 text-left text-base leading-relaxed text-slate-300 sm:text-center"
-            >
-              <p data-i18n="section2_p1">
-                Wir glauben daran, dass die besten Erlebnisse entstehen, wenn
-                Bewegung, Entdeckerfreude und Genuss zusammenkommen. Unsere
-                QR-Pfade laden dazu ein, die Augen offen zu halten, neue
-                Lieblingsorte zu entdecken und den Moment mit allen Sinnen zu
-                genießen.
-              </p>
-              <p data-i18n="section2_p2">
-                Jeder Fund an unseren Stationen ist eine kleine Einladung zum
-                Innehalten, Durchatmen und Genießen. Wir möchten Menschen
-                zusammenbringen – durch die Freude am Draußensein und die
-                Begeisterung für ehrliche, handgemachte Köstlichkeiten.
-              </p>
-            </div>
-          </div>
-
-          <!-- Three Pillar Cards in Frosted Glass -->
-          <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
-            <!-- Pillar 1: Natur & Entdeckung -->
-            <div
-              class="glass-panel-subtle flex flex-col justify-between rounded-2xl border border-white/10 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-orange-500/40"
-            >
-              <div>
-                <div
-                  class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-500/20 text-orange-400 shadow-inner"
-                >
-                  <svg
-                    class="h-6 w-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.8"
-                      d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </div>
-                <h3
-                  class="mb-2 text-xl font-bold text-white"
-                  data-i18n="card1_title"
-                >
-                  Natur & Entdeckung
-                </h3>
-                <p
-                  class="text-sm leading-relaxed text-slate-300"
-                  data-i18n="card1_desc"
-                >
-                  Dem Alltag entfliehen, geheime Pfade erkunden und die Natur
-                  auf neuen Wegen erleben.
-                </p>
-              </div>
-              <div
-                class="mt-6 flex items-center gap-2 border-t border-white/10 pt-6 text-xs font-semibold text-orange-400"
-              >
-                <span>Draußen unterwegs</span>
-                <svg
-                  class="h-4 w-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </div>
-            </div>
-
-            <!-- Pillar 2: Süße Belohnung -->
-            <div
-              class="glass-panel-subtle flex flex-col justify-between rounded-2xl border border-white/10 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-orange-500/40"
-            >
-              <div>
-                <div
-                  class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-500/20 text-orange-400 shadow-inner"
-                >
-                  <svg
-                    class="h-6 w-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.8"
-                      d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"
-                    />
-                  </svg>
-                </div>
-                <h3
-                  class="mb-2 text-xl font-bold text-white"
-                  data-i18n="card2_title"
-                >
-                  Süße Belohnung
-                </h3>
-                <p
-                  class="text-sm leading-relaxed text-slate-300"
-                  data-i18n="card2_desc"
-                >
-                  Nach jedem schlauen Pfad wartet ein unvergesslicher Moment
-                  voll echtem Geschmack.
-                </p>
-              </div>
-              <div
-                class="mt-6 flex items-center gap-2 border-t border-white/10 pt-6 text-xs font-semibold text-orange-400"
-              >
-                <span>Echtes Handwerk</span>
-                <svg
-                  class="h-4 w-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </div>
-            </div>
-
-            <!-- Pillar 3: Gemeinschaft -->
-            <div
-              class="glass-panel-subtle flex flex-col justify-between rounded-2xl border border-white/10 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-orange-500/40"
-            >
-              <div>
-                <div
-                  class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-500/20 text-orange-400 shadow-inner"
-                >
-                  <svg
-                    class="h-6 w-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.8"
-                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                    />
-                  </svg>
-                </div>
-                <h3
-                  class="mb-2 text-xl font-bold text-white"
-                  data-i18n="card3_title"
-                >
-                  Gemeinschaft
-                </h3>
-                <p
-                  class="text-sm leading-relaxed text-slate-300"
-                  data-i18n="card3_desc"
-                >
-                  Erlebnisse teilen, Stationen aufspüren und miteinander ins
-                  Gespräch kommen.
-                </p>
-              </div>
-              <div
-                class="mt-6 flex items-center gap-2 border-t border-white/10 pt-6 text-xs font-semibold text-orange-400"
-              >
-                <span>Zusammen erleben</span>
-                <svg
-                  class="h-4 w-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ================================================================= -->
-      <!-- SECTION 3: "Meld Dich bei uns" (Contact Formular)                 -->
-      <!-- ================================================================= -->
-      <section
-        id="contact"
-        class="relative scroll-mt-16 px-4 py-24 sm:scroll-mt-24 sm:px-6 lg:px-12"
-      >
-        <div class="mx-auto max-w-4xl">
-          <div
-            class="glass-panel relative overflow-hidden rounded-3xl border border-white/10 p-6 sm:p-12 lg:p-14"
-          >
-            <!-- Warm bottom glow -->
-            <div
-              class="pointer-events-none absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-orange-600/15 blur-3xl"
-            ></div>
-
-            <div class="mx-auto mb-10 max-w-2xl text-center">
               <!-- Tag Badge -->
               <div
-                class="mb-4 inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/15 px-3.5 py-1.5 text-xs font-semibold tracking-wider text-orange-400 uppercase"
+                class="mb-5 inline-flex items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/20 px-3.5 py-1.5 text-xs font-semibold tracking-wider text-orange-300 uppercase"
               >
                 <span class="h-2 w-2 rounded-full bg-orange-400"></span>
-                <span data-i18n="section3_tag">Austausch & Kontakt</span>
+                <span data-i18n="section2_tag">Unsere Philosophie</span>
               </div>
 
+              <!-- Title -->
               <h2
-                class="mb-4 text-3xl font-extrabold tracking-tight text-white sm:text-5xl"
-                data-i18n="section3_title"
+                class="mb-5 text-3xl font-extrabold tracking-tight text-white sm:text-5xl"
+                data-i18n="section2_title"
               >
-                Meld Dich bei uns
+                Warum tun wir das?
               </h2>
 
+              <!-- Lead Statement -->
               <p
-                class="text-base leading-relaxed text-slate-300 sm:text-lg"
-                data-i18n="section3_subtitle"
+                class="mx-auto mb-8 max-w-2xl text-lg leading-relaxed font-semibold text-orange-300 sm:text-2xl"
+                data-i18n="section2_lead"
               >
-                Hast du einen unserer Pfade entdeckt, möchtest Feedback teilen
-                oder hast eine Frage? Schreib uns einfach – wir freuen uns auf
-                deine Nachricht!
+                Weil das Leben draußen schöner ist – und mit einer süßen
+                Belohnung noch viel besser.
               </p>
+
+              <!-- Editorial Story Copy -->
+              <div
+                class="mx-auto max-w-2xl space-y-5 text-left text-base leading-relaxed text-slate-100 sm:text-center sm:text-lg"
+              >
+                <p data-i18n="section2_p1">
+                  Wir glauben daran, dass die besten Erlebnisse entstehen, wenn
+                  Bewegung, Entdeckerfreude und Genuss zusammenkommen. Unsere
+                  QR-Pfade laden dazu ein, die Augen offen zu halten, neue
+                  Lieblingsorte zu entdecken und den Moment mit allen Sinnen zu
+                  genießen.
+                </p>
+                <p data-i18n="section2_p2">
+                  Jeder Fund an unseren Stationen ist eine kleine Einladung zum
+                  Innehalten, Durchatmen und Genießen. Wir möchten Menschen
+                  zusammenbringen – durch die Freude am Draußensein und die
+                  Begeisterung für ehrliche, handgemachte Köstlichkeiten.
+                </p>
+              </div>
             </div>
+          </div>
+        </section>
 
-            <!-- In-Form Success / Error Banner Container -->
-            <div id="form-status" class="mb-8 hidden"></div>
-
-            <!-- NETLIFY COMPLIANT CONTACT FORM -->
-            <form
-              id="contact-form"
-              name="contact"
-              method="POST"
-              data-netlify="true"
-              netlify-honeypot="bot-field"
-              class="space-y-6"
+        <!-- SECTION: "Schreib uns!" (Contact Formular) -->
+        <section
+          id="contact"
+          class="relative z-10 scroll-mt-16 px-4 pt-8 pb-28 sm:scroll-mt-24 sm:px-6 lg:px-12"
+        >
+          <div class="mx-auto max-w-4xl">
+            <div
+              class="glass-panel relative overflow-hidden rounded-3xl border border-white/20 p-6 shadow-2xl sm:p-12 lg:p-14"
             >
-              <!-- Hidden Netlify Form Identity -->
-              <input type="hidden" name="form-name" value="contact" />
-
-              <!-- Anti-Spam Honeypot Field (Invisible to real humans, traps bots) -->
-              <p class="hidden" aria-hidden="true">
-                <label>
-                  Don't fill this out if you're human:
-                  <input name="bot-field" tabindex="-1" autocomplete="off" />
-                </label>
-              </p>
-
-              <!-- Hidden Location ID Parameter (?loc-id=<int>) -->
-              <input type="hidden" name="loc-id" id="form-loc-id" value="" />
-
-              <!-- Hidden Client Device Parameter (iOS / Android / Desktop) -->
-              <input type="hidden" name="device" id="form-device" value="" />
-
-              <!-- Row 1: Name & Email -->
-              <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                <!-- Name (Required) -->
-                <div>
-                  <label
-                    for="form-name"
-                    class="mb-2 block text-sm font-semibold text-slate-200"
-                  >
-                    <span data-i18n="form_name_label">Dein Name *</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="form-name"
-                    name="name"
-                    required
-                    maxlength="100"
-                    placeholder="z.B. Anna Fuchs"
-                    data-i18n-placeholder="form_name_placeholder"
-                    class="glass-input w-full rounded-xl px-4 py-3 text-sm font-normal text-white placeholder-slate-500 transition-all focus:border-orange-500 focus:ring-2 focus:ring-orange-500"
-                  />
+              <div class="mx-auto mb-10 max-w-2xl text-center">
+                <!-- Tag Badge -->
+                <div
+                  class="mb-4 inline-flex items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/20 px-3.5 py-1.5 text-xs font-semibold tracking-wider text-orange-300 uppercase"
+                >
+                  <span class="h-2 w-2 rounded-full bg-orange-400"></span>
+                  <span data-i18n="section3_tag">Austausch & Kontakt</span>
                 </div>
 
-                <!-- Email (Optional) -->
+                <h2
+                  class="mb-4 text-3xl font-extrabold tracking-tight text-white sm:text-5xl"
+                  data-i18n="section3_title"
+                >
+                  Schreib uns!
+                </h2>
+
+                <p
+                  class="text-base leading-relaxed text-slate-200 sm:text-lg"
+                  data-i18n="section3_subtitle"
+                >
+                  Hast du einen unserer Pfade entdeckt, möchtest Feedback teilen
+                  oder hast eine Frage? Schreib uns einfach – wir freuen uns auf
+                  deine Nachricht!
+                </p>
+              </div>
+
+              <!-- In-Form Success / Error Banner Container -->
+              <div id="form-status" class="mb-8 hidden"></div>
+
+              <!-- NETLIFY COMPLIANT CONTACT FORM -->
+              <form
+                id="contact-form"
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                class="space-y-6"
+              >
+                <!-- Hidden Netlify Form Identity -->
+                <input type="hidden" name="form-name" value="contact" />
+
+                <!-- Anti-Spam Honeypot Field -->
+                <p class="hidden" aria-hidden="true">
+                  <label>
+                    Don't fill this out if you're human:
+                    <input name="bot-field" tabindex="-1" autocomplete="off" />
+                  </label>
+                </p>
+
+                <!-- Hidden Location ID Parameter (?loc-id=<int>) -->
+                <input type="hidden" name="loc-id" id="form-loc-id" value="" />
+
+                <!-- Hidden Client Device Parameter (iOS / Android / Desktop) -->
+                <input type="hidden" name="device" id="form-device" value="" />
+
+                <!-- Row 1: Name & Email -->
+                <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                  <!-- Name (Required) -->
+                  <div>
+                    <label
+                      for="form-name"
+                      class="mb-2 block text-sm font-semibold text-slate-100"
+                    >
+                      <span data-i18n="form_name_label">Dein Name *</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="form-name"
+                      name="name"
+                      required
+                      maxlength="100"
+                      placeholder="z.B. Anna Fuchs"
+                      data-i18n-placeholder="form_name_placeholder"
+                      class="glass-input w-full rounded-xl px-4 py-3 text-sm font-normal text-white placeholder-slate-400 transition-all focus:border-orange-500 focus:ring-2 focus:ring-orange-500"
+                    />
+                  </div>
+
+                  <!-- Email (Optional) -->
+                  <div>
+                    <div class="mb-2 flex items-center justify-between">
+                      <label
+                        for="form-email"
+                        class="text-sm font-semibold text-slate-100"
+                      >
+                        <span data-i18n="form_email_label">E-Mail-Adresse</span>
+                      </label>
+                      <span
+                        class="text-xs font-medium text-slate-300"
+                        data-i18n="form_email_optional"
+                        >(optional)</span
+                      >
+                    </div>
+                    <input
+                      type="email"
+                      id="form-email"
+                      name="email"
+                      maxlength="150"
+                      placeholder="name@beispiel.de"
+                      data-i18n-placeholder="form_email_placeholder"
+                      class="glass-input w-full rounded-xl px-4 py-3 text-sm font-normal text-white placeholder-slate-400 transition-all focus:border-orange-500 focus:ring-2 focus:ring-orange-500"
+                    />
+                  </div>
+                </div>
+
+                <!-- Row 2: Where did you find the QR Code? (Optional) -->
                 <div>
                   <div class="mb-2 flex items-center justify-between">
                     <label
-                      for="form-email"
-                      class="text-sm font-semibold text-slate-200"
+                      for="form-qr-location"
+                      class="text-sm font-semibold text-slate-100"
                     >
-                      <span data-i18n="form_email_label">E-Mail-Adresse</span>
+                      <span data-i18n="form_place_label"
+                        >Wo hast du den QR-Code gefunden?</span
+                      >
                     </label>
                     <span
-                      class="text-xs font-medium text-slate-400"
-                      data-i18n="form_email_optional"
+                      class="text-xs font-medium text-slate-300"
+                      data-i18n="form_place_optional"
                       >(optional)</span
                     >
                   </div>
                   <input
-                    type="email"
-                    id="form-email"
-                    name="email"
-                    maxlength="150"
-                    placeholder="name@beispiel.de"
-                    data-i18n-placeholder="form_email_placeholder"
-                    class="glass-input w-full rounded-xl px-4 py-3 text-sm font-normal text-white placeholder-slate-500 transition-all focus:border-orange-500 focus:ring-2 focus:ring-orange-500"
+                    type="text"
+                    id="form-qr-location"
+                    name="qr_location"
+                    maxlength="200"
+                    placeholder="z.B. Aussichtsturm, Parkbank am See..."
+                    data-i18n-placeholder="form_place_placeholder"
+                    class="glass-input w-full rounded-xl px-4 py-3 text-sm font-normal text-white placeholder-slate-400 transition-all focus:border-orange-500 focus:ring-2 focus:ring-orange-500"
                   />
                 </div>
-              </div>
 
-              <!-- Row 2: Where did you find the QR Code? (Optional) -->
-              <div>
-                <div class="mb-2 flex items-center justify-between">
+                <!-- Row 3: Message (Required) -->
+                <div>
                   <label
-                    for="form-qr-location"
-                    class="text-sm font-semibold text-slate-200"
+                    for="form-message"
+                    class="mb-2 block text-sm font-semibold text-slate-100"
                   >
-                    <span data-i18n="form_place_label"
-                      >Wo hast du den QR-Code gefunden?</span
+                    <span data-i18n="form_message_label"
+                      >Deine Nachricht *</span
                     >
                   </label>
-                  <span
-                    class="text-xs font-medium text-slate-400"
-                    data-i18n="form_place_optional"
-                    >(optional)</span
-                  >
+                  <textarea
+                    id="form-message"
+                    name="message"
+                    required
+                    rows="5"
+                    maxlength="1500"
+                    placeholder="Erzähl uns von deinem Fund oder deiner Frage..."
+                    data-i18n-placeholder="form_message_placeholder"
+                    class="glass-input w-full resize-y rounded-xl px-4 py-3 text-sm font-normal text-white placeholder-slate-400 transition-all focus:border-orange-500 focus:ring-2 focus:ring-orange-500"
+                  ></textarea>
                 </div>
-                <input
-                  type="text"
-                  id="form-qr-location"
-                  name="qr_location"
-                  maxlength="200"
-                  placeholder="z.B. Aussichtsturm, Parkbank am See..."
-                  data-i18n-placeholder="form_place_placeholder"
-                  class="glass-input w-full rounded-xl px-4 py-3 text-sm font-normal text-white placeholder-slate-500 transition-all focus:border-orange-500 focus:ring-2 focus:ring-orange-500"
-                />
-              </div>
 
-              <!-- Row 3: Message (Required) -->
-              <div>
-                <label
-                  for="form-message"
-                  class="mb-2 block text-sm font-semibold text-slate-200"
+                <!-- GDPR / Privacy Note -->
+                <p
+                  class="text-xs leading-relaxed text-slate-300"
+                  data-i18n="form_consent"
                 >
-                  <span data-i18n="form_message_label">Deine Nachricht *</span>
-                </label>
-                <textarea
-                  id="form-message"
-                  name="message"
-                  required
-                  rows="5"
-                  maxlength="1500"
-                  placeholder="Erzähl uns von deinem Fund oder deiner Frage..."
-                  data-i18n-placeholder="form_message_placeholder"
-                  class="glass-input w-full resize-y rounded-xl px-4 py-3 text-sm font-normal text-white placeholder-slate-500 transition-all focus:border-orange-500 focus:ring-2 focus:ring-orange-500"
-                ></textarea>
-              </div>
+                  Mit dem Absenden erklärst du dich mit der Verarbeitung deiner
+                  Angaben zur Beantwortung deiner Nachricht einverstanden.
+                </p>
 
-              <!-- GDPR / Privacy Note -->
-              <p
-                class="text-xs leading-relaxed text-slate-400"
-                data-i18n="form_consent"
-              >
-                Mit dem Absenden erklärst du dich mit der Verarbeitung deiner
-                Angaben zur Beantwortung deiner Nachricht einverstanden.
-              </p>
-
-              <!-- Submit Button -->
-              <div class="flex justify-end pt-2">
-                <button
-                  type="submit"
-                  class="btn-primary group flex w-full cursor-pointer items-center justify-center gap-2 rounded-full px-8 py-3.5 text-base font-bold tracking-wide sm:w-auto"
-                >
-                  <span data-i18n="form_submit">Nachricht absenden</span>
-                  <svg
-                    class="h-5 w-5 transition-transform group-hover:translate-x-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                <!-- Submit Button -->
+                <div class="flex justify-end pt-2">
+                  <button
+                    type="submit"
+                    class="btn-primary group flex w-full cursor-pointer items-center justify-center gap-2 rounded-full px-9 py-3.5 text-base font-bold tracking-wide sm:w-auto"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </form>
+                    <span data-i18n="form_submit">Nachricht absenden</span>
+                    <svg
+                      class="h-5 w-5 transition-transform group-hover:translate-x-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       <!-- ================================================================= -->
       <!-- FOOTER                                                            -->
       <!-- ================================================================= -->
       <footer
-        class="border-t border-white/10 bg-slate-950/80 px-4 py-10 sm:px-6 lg:px-12"
+        class="border-t border-white/10 bg-slate-950/90 px-4 py-10 sm:px-6 lg:px-12"
       >
         <div
           class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-6 text-sm text-slate-400 sm:flex-row"
@@ -1194,7 +997,7 @@
             />
             <span class="font-semibold text-slate-200">TörtchenFuchs</span>
             <span class="hidden text-slate-600 sm:inline">|</span>
-            <span class="text-xs text-slate-500"
+            <span class="text-xs text-slate-400"
               >© 2026.
               <span data-i18n="footer_rights"
                 >Alle Rechte vorbehalten.</span
@@ -1206,7 +1009,7 @@
             <button
               type="button"
               data-modal-target="impressum-modal"
-              class="text-xs text-slate-400 underline-offset-4 transition-colors hover:text-orange-400 hover:underline sm:text-sm"
+              class="cursor-pointer text-xs text-slate-300 underline-offset-4 transition-colors hover:text-orange-400 hover:underline sm:text-sm"
               data-i18n="link_impressum"
             >
               Impressum
@@ -1214,7 +1017,7 @@
             <button
               type="button"
               data-modal-target="privacy-modal"
-              class="text-xs text-slate-400 underline-offset-4 transition-colors hover:text-orange-400 hover:underline sm:text-sm"
+              class="cursor-pointer text-xs text-slate-300 underline-offset-4 transition-colors hover:text-orange-400 hover:underline sm:text-sm"
               data-i18n="link_privacy"
             >
               Datenschutz
@@ -1237,7 +1040,7 @@
       aria-modal="true"
     >
       <div
-        class="modal-panel glass-panel max-h-[90vh] w-full max-w-lg scale-95 transform overflow-y-auto rounded-3xl border border-white/15 p-6 shadow-2xl transition-transform duration-300 sm:p-8"
+        class="modal-panel glass-panel max-h-[90vh] w-full max-w-lg scale-95 transform overflow-y-auto rounded-3xl border border-white/20 p-6 shadow-2xl transition-transform duration-300 sm:p-8"
       >
         <div
           class="mb-6 flex items-center justify-between border-b border-white/10 pb-4"
@@ -1252,7 +1055,7 @@
           <button
             type="button"
             data-modal-close
-            class="rounded-xl bg-white/10 p-2 text-slate-300 hover:bg-white/15 hover:text-white"
+            class="cursor-pointer rounded-xl bg-white/10 p-2 text-slate-300 hover:bg-white/15 hover:text-white"
             aria-label="Schließen"
           >
             <svg
@@ -1271,12 +1074,12 @@
           </button>
         </div>
 
-        <div class="space-y-5 text-sm leading-relaxed text-slate-300">
+        <div class="space-y-5 text-sm leading-relaxed text-slate-200">
           <div>
             <h4 class="mb-1 text-base font-bold text-white">
               Angaben gemäß § 5 DDG
             </h4>
-            <p class="font-medium text-slate-200">Fabian Baier</p>
+            <p class="font-medium text-slate-100">Fabian Baier</p>
             <p>Elgarstr. 3</p>
             <p>30989 Gehrden</p>
             <p>Deutschland</p>
@@ -1285,8 +1088,7 @@
           <div>
             <h4 class="mb-1 text-base font-bold text-white">Kontakt</h4>
             <div class="flex flex-col gap-2 pt-1 sm:flex-row sm:items-center">
-              <span class="text-slate-400">E-Mail:</span>
-              <!-- Protected email container (scraped-proof) -->
+              <span class="text-slate-300">E-Mail:</span>
               <span
                 data-protected-email
                 class="cursor-pointer font-mono text-orange-400 underline hover:text-orange-300"
@@ -1295,7 +1097,7 @@
               <button
                 type="button"
                 data-copy-email
-                class="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold text-slate-200 transition-all hover:bg-white/20"
+                class="cursor-pointer rounded-lg bg-white/15 px-2.5 py-1 text-xs font-semibold text-slate-100 transition-all hover:bg-white/25"
                 data-i18n="copy_email"
               >
                 E-Mail kopieren
@@ -1311,7 +1113,7 @@
             <h4 class="mb-1 text-base font-bold text-white">
               Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
             </h4>
-            <p class="font-medium text-slate-200">Fabian Baier</p>
+            <p class="font-medium text-slate-100">Fabian Baier</p>
             <p>Elgarstr. 3, 30989 Gehrden</p>
           </div>
 
@@ -1319,7 +1121,7 @@
             <button
               type="button"
               data-modal-close
-              class="btn-secondary rounded-xl px-5 py-2 text-sm font-semibold"
+              class="btn-secondary cursor-pointer rounded-xl px-5 py-2 text-sm font-semibold"
               data-i18n="modal_close"
             >
               Schließen
@@ -1338,7 +1140,7 @@
       aria-modal="true"
     >
       <div
-        class="modal-panel glass-panel max-h-[90vh] w-full max-w-2xl scale-95 transform overflow-y-auto rounded-3xl border border-white/15 p-6 shadow-2xl transition-transform duration-300 sm:p-8"
+        class="modal-panel glass-panel max-h-[90vh] w-full max-w-2xl scale-95 transform overflow-y-auto rounded-3xl border border-white/20 p-6 shadow-2xl transition-transform duration-300 sm:p-8"
       >
         <div
           class="mb-6 flex items-center justify-between border-b border-white/10 pb-4"
@@ -1353,7 +1155,7 @@
           <button
             type="button"
             data-modal-close
-            class="rounded-xl bg-white/10 p-2 text-slate-300 hover:bg-white/15 hover:text-white"
+            class="cursor-pointer rounded-xl bg-white/10 p-2 text-slate-300 hover:bg-white/15 hover:text-white"
             aria-label="Schließen"
           >
             <svg
@@ -1372,7 +1174,7 @@
           </button>
         </div>
 
-        <div class="space-y-4 text-sm leading-relaxed text-slate-300">
+        <div class="space-y-4 text-sm leading-relaxed text-slate-200">
           <div>
             <h4 class="mb-1 text-base font-bold text-white">
               1. Verantwortlicher
@@ -1441,7 +1243,7 @@
             <button
               type="button"
               data-modal-close
-              class="btn-secondary rounded-xl px-5 py-2 text-sm font-semibold"
+              class="btn-secondary cursor-pointer rounded-xl px-5 py-2 text-sm font-semibold"
               data-i18n="modal_close"
             >
               Schließen
