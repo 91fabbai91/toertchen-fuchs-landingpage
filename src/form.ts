@@ -1,5 +1,7 @@
 import { populateFormHiddenFields } from './tracking';
 import { translations, getLanguage } from './i18n';
+import { compressImage, formatFileSize } from './imageCompression';
+import type { CompressionResult } from './imageCompression';
 
 const pageLoadTime = Date.now();
 const MIN_SUBMISSION_TIME_MS = 2500;
@@ -13,6 +15,113 @@ export function initContactForm(): void {
   );
   const statusContainer =
     document.querySelector<HTMLDivElement>('#form-status');
+
+  // Photo upload DOM elements
+  const photoInput = form.querySelector<HTMLInputElement>('#form-photo');
+  const photoUploadLabel = form.querySelector<HTMLLabelElement>(
+    '#photo-upload-label'
+  );
+  const previewCard = form.querySelector<HTMLDivElement>('#photo-preview-card');
+  const previewImg = form.querySelector<HTMLImageElement>('#photo-preview-img');
+  const previewName = form.querySelector<HTMLParagraphElement>(
+    '#photo-preview-name'
+  );
+  const previewSize = form.querySelector<HTMLParagraphElement>(
+    '#photo-preview-size'
+  );
+  const removeBtn = form.querySelector<HTMLButtonElement>('#photo-remove-btn');
+
+  // Active compressed image state
+  let activeCompressedPhoto: { blob: Blob; fileName: string } | null = null;
+  let activePreviewUrl: string | null = null;
+
+  function resetPhotoState(): void {
+    activeCompressedPhoto = null;
+    if (activePreviewUrl) {
+      URL.revokeObjectURL(activePreviewUrl);
+      activePreviewUrl = null;
+    }
+    if (photoInput) {
+      photoInput.value = '';
+    }
+    if (previewCard) {
+      previewCard.classList.add('hidden');
+    }
+    if (photoUploadLabel) {
+      photoUploadLabel.classList.remove('hidden');
+      const lang = getLanguage();
+      const dict = translations[lang];
+      photoUploadLabel.innerHTML = `
+        <svg class="h-5 w-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+        <span data-i18n="form_photo_btn">${dict.form_photo_btn}</span>
+      `;
+    }
+  }
+
+  // Bind photo file selection & instant client-side compression
+  if (photoInput) {
+    photoInput.addEventListener('change', async () => {
+      const file = photoInput.files?.[0];
+      if (!file) return;
+
+      if (!file.type.startsWith('image/')) {
+        return;
+      }
+
+      const lang = getLanguage();
+      const dict = translations[lang];
+
+      // Show compressing spinner on label
+      if (photoUploadLabel) {
+        photoUploadLabel.innerHTML = `
+          <svg class="animate-spin h-5 w-5 text-orange-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+          </svg>
+          <span class="text-orange-300 font-semibold">${dict.form_photo_compressing}</span>
+        `;
+      }
+
+      try {
+        const result: CompressionResult = await compressImage(file, 1600, 0.82);
+        const safeBaseName = file.name
+          .replace(/\.[^/.]+$/, '')
+          .replace(/[^a-zA-Z0-9_-]/g, '_');
+        activeCompressedPhoto = {
+          blob: result.blob,
+          fileName: `${safeBaseName || 'photo'}.jpg`,
+        };
+
+        if (activePreviewUrl) {
+          URL.revokeObjectURL(activePreviewUrl);
+        }
+        activePreviewUrl = URL.createObjectURL(result.blob);
+
+        if (previewImg) previewImg.src = activePreviewUrl;
+        if (previewName) previewName.textContent = file.name;
+        if (previewSize) {
+          previewSize.textContent = `${formatFileSize(result.originalSize)} ➔ ${formatFileSize(result.compressedSize)}`;
+        }
+
+        if (photoUploadLabel) photoUploadLabel.classList.add('hidden');
+        if (previewCard) previewCard.classList.remove('hidden');
+      } catch (err) {
+        console.error('Image compression error:', err);
+        resetPhotoState();
+      }
+    });
+  }
+
+  // Bind remove button
+  if (removeBtn) {
+    removeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      resetPhotoState();
+    });
+  }
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -40,6 +149,7 @@ export function initContactForm(): void {
       // Bot trapped in honeypot; simulate fake success to dismiss bot
       showStatus('success', dict.form_success_title, dict.form_success_desc);
       form.reset();
+      resetPhotoState();
       return;
     }
 
@@ -61,34 +171,39 @@ export function initContactForm(): void {
 
     try {
       const formData = new FormData(form);
+
       // Ensure 'form-name' is included for Netlify Forms
       if (!formData.has('form-name')) {
         formData.append('form-name', 'contact');
       }
 
-      const encodedBody = new URLSearchParams();
-      formData.forEach((value, key) => {
-        encodedBody.append(key, value.toString());
-      });
+      // Attach client-compressed photo blob if available, otherwise delete empty file field
+      if (activeCompressedPhoto) {
+        formData.set(
+          'photo',
+          activeCompressedPhoto.blob,
+          activeCompressedPhoto.fileName
+        );
+      } else {
+        formData.delete('photo');
+      }
 
+      // Submit directly as multipart FormData (do not manually set Content-Type header so browser computes boundary)
       const response = await fetch('/', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: encodedBody.toString(),
+        body: formData,
       });
 
       if (response.ok || response.status === 200 || response.status === 302) {
         showStatus('success', dict.form_success_title, dict.form_success_desc);
         form.reset();
+        resetPhotoState();
         populateFormHiddenFields();
       } else {
         throw new Error(`Server returned ${response.status}`);
       }
     } catch {
       // In local dev without Netlify runtime, display success simulation or error
-      // If running on localhost / vite dev server, let the user know submission succeeded in test mode
       if (
         window.location.hostname === 'localhost' ||
         window.location.hostname === '127.0.0.1'
@@ -99,6 +214,7 @@ export function initContactForm(): void {
           dict.form_success_desc
         );
         form.reset();
+        resetPhotoState();
         populateFormHiddenFields();
       } else {
         showStatus('error', dict.form_error_title, dict.form_error_desc);

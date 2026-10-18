@@ -734,12 +734,20 @@
                 id="contact-form"
                 name="contact"
                 method="POST"
+                enctype="multipart/form-data"
                 data-netlify="true"
                 netlify-honeypot="bot-field"
                 class="space-y-6"
               >
                 <!-- Hidden Netlify Form Identity -->
                 <input type="hidden" name="form-name" value="contact" />
+
+                <!-- Email Notification Subject -->
+                <input
+                  type="hidden"
+                  name="subject"
+                  value="Neuer TörtchenFuchs-Fund!"
+                />
 
                 <!-- Anti-Spam Honeypot Field -->
                 <p class="hidden" aria-hidden="true">
@@ -832,7 +840,119 @@
                   />
                 </div>
 
-                <!-- Row 3: Message (Required) -->
+                <!-- Row 3: Photo of your find (Optional) -->
+                <div>
+                  <div class="mb-2 flex items-center justify-between">
+                    <label
+                      for="form-photo"
+                      class="text-sm font-semibold text-slate-100"
+                    >
+                      <span data-i18n="form_photo_label"
+                        >Foto von deinem Fund</span
+                      >
+                    </label>
+                    <span
+                      class="text-xs font-medium text-slate-300"
+                      data-i18n="form_photo_optional"
+                      >(optional)</span
+                    >
+                  </div>
+
+                  <!-- Upload Trigger Button & Hidden Input -->
+                  <div id="photo-upload-container">
+                    <input
+                      type="file"
+                      id="form-photo"
+                      name="photo"
+                      accept="image/*"
+                      class="sr-only"
+                    />
+                    <label
+                      for="form-photo"
+                      id="photo-upload-label"
+                      class="glass-input flex w-full cursor-pointer items-center justify-center gap-3 rounded-xl border border-dashed border-white/25 px-4 py-3.5 text-sm font-medium text-slate-200 transition-all hover:border-orange-400 hover:bg-white/10 hover:text-white"
+                    >
+                      <svg
+                        class="h-5 w-5 text-orange-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
+                        />
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
+                      </svg>
+                      <span data-i18n="form_photo_btn"
+                        >Foto auswählen oder aufnehmen</span
+                      >
+                    </label>
+
+                    <!-- Preview Card (Hidden by default) -->
+                    <div
+                      id="photo-preview-card"
+                      class="mt-2.5 flex hidden items-center justify-between rounded-xl border border-white/20 bg-slate-900/70 p-2.5 backdrop-blur-md"
+                    >
+                      <div class="flex items-center gap-3 overflow-hidden">
+                        <img
+                          id="photo-preview-img"
+                          src=""
+                          alt="Vorschau"
+                          class="h-12 w-12 rounded-lg border border-white/20 object-cover shadow"
+                        />
+                        <div class="min-w-0">
+                          <p
+                            id="photo-preview-name"
+                            class="truncate text-xs font-semibold text-white"
+                          ></p>
+                          <p
+                            id="photo-preview-size"
+                            class="text-[11px] font-medium text-emerald-400"
+                          ></p>
+                        </div>
+                      </div>
+                      <button
+                        type="button"
+                        id="photo-remove-btn"
+                        class="cursor-pointer rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-white/10 hover:text-white"
+                        title="Foto entfernen"
+                      >
+                        <svg
+                          class="h-4 w-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+
+                    <!-- Privacy & Optimization Hint -->
+                    <p
+                      class="mt-1.5 text-xs leading-normal text-slate-300/80"
+                      data-i18n="form_photo_privacy_hint"
+                    >
+                      🔒 Freiwillig • Wird nicht veröffentlicht, nur für unsere
+                      private Ansicht • Automatisch fürs Web optimiert
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Row 4: Message (Required) -->
                 <div>
                   <label
                     for="form-message"
@@ -860,7 +980,9 @@
                   data-i18n="form_consent"
                 >
                   Mit dem Absenden erklärst du dich mit der Verarbeitung deiner
-                  Angaben zur Beantwortung deiner Nachricht einverstanden.
+                  Angaben einverstanden. Hochgeladene Fotos sind freiwillig,
+                  werden niemals veröffentlicht und dienen ausschließlich
+                  unserer privaten Ansicht.
                 </p>
 
                 <!-- Submit Button -->
@@ -1127,16 +1249,19 @@
 
           <div>
             <h4 class="mb-1 text-base font-bold text-white">
-              4. Kontaktformular
+              4. Kontaktformular & freiwilliger Foto-Upload
             </h4>
             <p>
               Wenn du uns über das Kontaktformular eine Nachricht sendest,
               werden deine Angaben (Name, optionale E-Mail, optionaler Fundort,
-              Nachricht und Stations-ID) zur Bearbeitung deiner Anfrage
-              gespeichert. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO
-              (vorvertragliche Maßnahmen/Anfragenbearbeitung) sowie Art. 6 Abs.
-              1 lit. a DSGVO (deine Einwilligung). Wir geben diese Daten nicht
-              an Dritte weiter.
+              Nachricht, optional hochgeladenes Foto und Stations-ID) zur
+              Bearbeitung deiner Anfrage gespeichert. Der Upload eines Fotos ist
+              vollkommen freiwillig. Hochgeladene Fotos werden niemals
+              veröffentlicht, dienen ausschließlich unserer privaten Ansicht und
+              werden streng vertraulich behandelt. Rechtsgrundlage ist Art. 6
+              Abs. 1 lit. b DSGVO (Anfragenbearbeitung) sowie Art. 6 Abs. 1 lit.
+              a DSGVO (deine ausdrückliche Einwilligung). Wir geben diese Daten
+              nicht an Dritte weiter.
             </p>
           </div>
 
