@@ -7,7 +7,20 @@ export interface TrackingData {
   timestamp: string;
 }
 
+export interface GeoData {
+  city: string | null;
+  region: string | null;
+  regionCode?: string | null;
+  country: string | null;
+  countryCode: string | null;
+  timezone: string | null;
+  latitude: number | null;
+  longitude: number | null;
+  coordinates: string | null;
+}
+
 const STORAGE_KEY = 'tf_loc_id';
+const GEO_STORAGE_KEY = 'tf_geo_data';
 
 export function extractLocationId(): number | null {
   if (typeof window === 'undefined') return null;
@@ -41,6 +54,52 @@ export function extractLocationId(): number | null {
   return null;
 }
 
+export function getStoredGeoData(): GeoData | null {
+  if (typeof window === 'undefined') return null;
+  try {
+    const stored = sessionStorage.getItem(GEO_STORAGE_KEY);
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      if (parsed && typeof parsed === 'object') {
+        return parsed as GeoData;
+      }
+    }
+  } catch {
+    // Graceful fallback
+  }
+  return null;
+}
+
+export function storeGeoData(geo: GeoData): void {
+  if (typeof window === 'undefined') return;
+  try {
+    sessionStorage.setItem(GEO_STORAGE_KEY, JSON.stringify(geo));
+  } catch {
+    // Graceful fallback
+  }
+}
+
+export function populateFormGeoFields(geo: GeoData): void {
+  const setField = (
+    selector: string,
+    value: string | number | null | undefined
+  ) => {
+    const el = document.querySelector<HTMLInputElement>(selector);
+    if (el) {
+      el.value = value !== null && value !== undefined ? String(value) : '';
+    }
+  };
+
+  setField('#form-geo-city', geo.city);
+  setField('#form-geo-region', geo.region);
+  setField('#form-geo-country', geo.country);
+  setField('#form-geo-country-code', geo.countryCode);
+  setField('#form-geo-timezone', geo.timezone);
+  setField('#form-geo-latitude', geo.latitude);
+  setField('#form-geo-longitude', geo.longitude);
+  setField('#form-geo-coordinates', geo.coordinates);
+}
+
 export function populateFormHiddenFields(): void {
   const locId = extractLocationId();
   const device = detectDevice();
@@ -54,12 +113,25 @@ export function populateFormHiddenFields(): void {
   if (deviceInput) {
     deviceInput.value = device;
   }
+
+  // Populate Geo fields from session storage if available
+  const storedGeo = getStoredGeoData();
+  if (storedGeo) {
+    populateFormGeoFields(storedGeo);
+  }
 }
 
-export async function sendPageTracking(): Promise<void> {
+export async function sendPageTracking(): Promise<GeoData | null> {
   const locId = extractLocationId();
   const device = detectDevice();
   const isQr = locId !== null;
+
+  let clientTimezone: string | null = null;
+  try {
+    clientTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone || null;
+  } catch {
+    // Graceful fallback
+  }
 
   const payload = {
     event: 'page_view',
@@ -68,11 +140,14 @@ export async function sendPageTracking(): Promise<void> {
     source: isQr ? 'qr_code' : 'direct',
     path: window.location.pathname,
     referrer: document.referrer || null,
+    clientTimezone,
+    clientLanguage:
+      typeof navigator !== 'undefined' ? navigator.language : null,
     timestamp: new Date().toISOString(),
   };
 
   try {
-    await fetch('/api/track', {
+    const response = await fetch('/api/track', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -80,7 +155,18 @@ export async function sendPageTracking(): Promise<void> {
       body: JSON.stringify(payload),
       keepalive: true,
     });
+
+    if (response.ok) {
+      const data = await response.json();
+      if (data && data.geo) {
+        storeGeoData(data.geo);
+        populateFormGeoFields(data.geo);
+        return data.geo as GeoData;
+      }
+    }
   } catch {
     // Tracking is non-blocking; silently ignore network failures
   }
+
+  return null;
 }

@@ -140,7 +140,7 @@ Implemented in [`src/imageCompression.ts`](file:///home/fabian/devel/toertchen-f
 Implemented in [`src/form.ts`](file:///home/fabian/devel/toertchen-fuchs-landingpage/src/form.ts) and [`public/__forms.html`](file:///home/fabian/devel/toertchen-fuchs-landingpage/public/__forms.html):
 
 - **Detection Scaffold:** Because the form is submitted via AJAX `fetch` with client-compressed blobs, [`public/__forms.html`](file:///home/fabian/devel/toertchen-fuchs-landingpage/public/__forms.html) provides a clean HTML template that Netlify's build-time parser detects without requiring SSR.
-- **Form Fields:** `name`, `email`, `message`, `photo` (file), `loc-id` (hidden), `device` (hidden), `bot-field` (honeypot).
+- **Form Fields:** `name`, `email`, `message`, `photo` (file), `loc-id` (hidden), `device` (hidden), `geo_*` geolocation parameters (hidden), `bot-field` (honeypot).
 - **Anti-Spam Layers:**
   1. _Honeypot:_ Hidden input `bot-field`. Submissions with this field populated are dismissed silently.
   2. _Time-to-Submit Verification:_ Submissions completed faster than 2.5 seconds after page load are rejected.
@@ -231,7 +231,8 @@ toertchen-fuchs-landingpage/
 │   └── pre-commit               # Git pre-commit hook (lint-staged & tsc)
 ├── netlify/
 │   └── functions/
-│       └── track.ts             # Serverless telemetry handler (IP-anonymized)
+│       ├── submission-created.ts # Guestbook form submission webhook handler
+│       └── track.ts              # Serverless telemetry handler (IP-anonymized)
 ├── public/
 │   ├── fonts/                   # Self-hosted WOFF2 font files
 │   ├── __forms.html             # Static Netlify form detection scaffold

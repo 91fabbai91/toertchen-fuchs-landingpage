@@ -10,6 +10,52 @@ export interface NetlifyResponse {
   body: string;
 }
 
+export interface GeoData {
+  city: string | null;
+  region: string | null;
+  regionCode: string | null;
+  country: string | null;
+  countryCode: string | null;
+  timezone: string | null;
+  latitude: number | null;
+  longitude: number | null;
+  coordinates: string | null;
+}
+
+/**
+ * Safely decodes and parses Netlify's geolocation header.
+ * On Netlify production, `x-nf-geo` is a Base64-encoded JSON string.
+ * Also supports direct JSON string parsing for local dev or mocked testing.
+ */
+export function parseNetlifyGeo(rawGeo: string | undefined): any {
+  if (!rawGeo || typeof rawGeo !== 'string') return null;
+  const trimmed = rawGeo.trim();
+  if (!trimmed) return null;
+
+  // 1. Try decoding Base64 (Netlify production default)
+  try {
+    const decoded = Buffer.from(trimmed, 'base64').toString('utf8');
+    const parsed = JSON.parse(decoded);
+    if (parsed && typeof parsed === 'object') {
+      return parsed;
+    }
+  } catch {
+    // Not valid base64 JSON, continue to fallback
+  }
+
+  // 2. Try parsing directly as JSON (for local mocks, unit tests, or direct proxies)
+  try {
+    const parsed = JSON.parse(trimmed);
+    if (parsed && typeof parsed === 'object') {
+      return parsed;
+    }
+  } catch {
+    // Ignore JSON parsing failure
+  }
+
+  return null;
+}
+
 export async function handler(event: NetlifyEvent): Promise<NetlifyResponse> {
   // CORS Preflight
   if (event.httpMethod === 'OPTIONS') {
@@ -45,29 +91,59 @@ export async function handler(event: NetlifyEvent): Promise<NetlifyResponse> {
     }
 
     // Extract Netlify IP Geo metadata safely without storing raw IP (GDPR compliant)
-    let geoData: {
-      city: string | null;
-      region: string | null;
-      country: string | null;
-    } = {
-      city: null,
-      region: null,
-      country: null,
-    };
+    const rawGeo = event.headers['x-nf-geo'] || event.headers['X-Nf-Geo'];
+    const parsedGeo = parseNetlifyGeo(rawGeo);
 
-    const rawGeo = event.headers['x-nf-geo'];
-    if (rawGeo) {
-      try {
-        const parsed = JSON.parse(rawGeo);
-        geoData = {
-          city: parsed.city || null,
-          region: parsed.subdivision?.name || null,
-          country: parsed.country?.name || parsed.country?.code || null,
-        };
-      } catch {
-        // Ignore JSON parsing failure
+    // Extract numeric coordinates
+    let lat: number | null = null;
+    let lon: number | null = null;
+
+    if (parsedGeo) {
+      if (
+        typeof parsedGeo.latitude === 'number' &&
+        !isNaN(parsedGeo.latitude)
+      ) {
+        lat = parsedGeo.latitude;
+      } else if (parsedGeo.latitude) {
+        const parsedLat = parseFloat(String(parsedGeo.latitude));
+        if (!isNaN(parsedLat)) lat = parsedLat;
+      }
+
+      if (
+        typeof parsedGeo.longitude === 'number' &&
+        !isNaN(parsedGeo.longitude)
+      ) {
+        lon = parsedGeo.longitude;
+      } else if (parsedGeo.longitude) {
+        const parsedLon = parseFloat(String(parsedGeo.longitude));
+        if (!isNaN(parsedLon)) lon = parsedLon;
       }
     }
+
+    // Format coordinates string if both lat & lon exist
+    const coordinates =
+      lat !== null && lon !== null
+        ? `${lat.toFixed(4)}, ${lon.toFixed(4)}`
+        : null;
+
+    // Use client-reported timezone as fallback if Netlify geo doesn't specify one
+    const fallbackTimezone =
+      typeof body.clientTimezone === 'string' && body.clientTimezone.trim()
+        ? body.clientTimezone.trim().slice(0, 100)
+        : null;
+
+    const geoData: GeoData = {
+      city: parsedGeo?.city || null,
+      region:
+        parsedGeo?.subdivision?.name || parsedGeo?.subdivision?.code || null,
+      regionCode: parsedGeo?.subdivision?.code || null,
+      country: parsedGeo?.country?.name || null,
+      countryCode: parsedGeo?.country?.code || null,
+      timezone: parsedGeo?.timezone || fallbackTimezone,
+      latitude: lat,
+      longitude: lon,
+      coordinates,
+    };
 
     // Sanitize locId (must be a valid integer or null)
     let sanitizedLocId: number | null = null;
@@ -84,15 +160,24 @@ export async function handler(event: NetlifyEvent): Promise<NetlifyResponse> {
       sanitizedLocId = parseInt(body.locId.trim(), 10);
     }
 
+    const isQr = sanitizedLocId !== null;
+
     const outgoingPayload = {
       event: 'page_view',
       locId: sanitizedLocId,
+      locLabel: isQr ? `Location #${sanitizedLocId}` : 'Direct Visit',
       device: typeof body.device === 'string' ? body.device : 'Other',
-      source: sanitizedLocId !== null ? 'qr_code' : 'direct',
+      source: isQr ? 'qr_code' : 'direct',
       geo: geoData,
       path: typeof body.path === 'string' ? body.path.slice(0, 200) : '/',
       referrer:
-        typeof body.referrer === 'string' ? body.referrer.slice(0, 500) : null,
+        typeof body.referrer === 'string' && body.referrer.trim() !== ''
+          ? body.referrer.slice(0, 500)
+          : 'direct',
+      language:
+        typeof body.clientLanguage === 'string'
+          ? body.clientLanguage.slice(0, 30)
+          : null,
       timestamp: body.timestamp || new Date().toISOString(),
     };
 
@@ -136,6 +221,7 @@ export async function handler(event: NetlifyEvent): Promise<NetlifyResponse> {
         success: true,
         tracked: true,
         locId: sanitizedLocId,
+        geo: geoData,
         mock: !webhookUrl,
       }),
     };
